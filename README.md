@@ -1,5 +1,8 @@
-# Côn Trùng Xanh
+# Trang trại Thanh Xuân — website mới
 
-Landing page giới thiệu cửa hàng côn trùng cảnh & thức ăn sống. Chỉ một file `index.html` (HTML + CSS thuần), mở trực tiếp bằng trình duyệt.
+Thiết kế lại trang chủ trangtraithanhxuan.com, giữ nguyên nội dung cũ (sản phẩm, bảng giá, gói bao tiêu, hướng dẫn mua hàng, liên hệ).
 
-Cần thay: tên shop, số Zalo/điện thoại, địa chỉ, giá, ảnh thật (thay các hình SVG minh hoạ).
+- `index.html`: toàn bộ trang (HTML + CSS thuần, không cần cài đặt gì).
+- `images/`: ảnh lấy từ website cũ, đã nén lại cho nhẹ.
+
+Mở `index.html` bằng trình duyệt để xem. Có thể đăng miễn phí bằng GitHub Pages.

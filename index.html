@@ -2,466 +2,665 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Côn Trùng Xanh — Côn trùng cảnh & thức ăn sống</title>
-<meta name="description" content="Cửa hàng côn trùng cảnh, bọ cánh cứng, bướm và thức ăn sống cho thú cưng. Giao hàng toàn quốc, hướng dẫn nuôi miễn phí.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trang Trại Thanh Xuân</title>
+<meta name="description" content="Trang trại Thanh Xuân: cung cấp giống dế mèn, tắc kè, bọ cạp từ 2004. Hợp đồng bao tiêu đầu ra không thời hạn, thu mua giá cố định. VTV2 phát sóng hàng năm từ 2009. Hotline 097 487 0000.">
+<meta name="keywords" content="dế giống, nuôi dế, dế mèn, giá dế giống, cách nuôi dế, bán dế giống, khay trứng dế, khay trứng dế thái, giá khay trứng dế, tắc kè, bán tắc kè, tắc kè giống, giá tắc kè thương phẩm, giá dế thương phẩm, kỹ thuật nuôi dế, kỹ thuật nuôi tắc kè, bọ cạp giống, nuôi bọ cạp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* Bố cục: "bảng hiệu trang trại" — dải xanh đậm, chữ in hoa dạng condensed,
+     bảng giá kiểu bảng niêm yết ở chợ nông sản, nút gọi điện luôn trong tầm tay. */
   :root{
-    --paper:#f4efe4;
-    --paper-2:#ebe4d4;
-    --ink:#1d2a22;
-    --ink-soft:#4b5a50;
-    --forest:#1f3d2f;
-    --moss:#5f7d4a;
-    --amber:#c8862f;
-    --amber-dark:#a66a1c;
-    --line:#d6ccb6;
-    --radius:14px;
-    --wrap:1160px;
+    --bg:#f4f6f0;
+    --surface:#ffffff;
+    --ink:#15231a;
+    --muted:#56635a;
+    --green:#0e3b25;
+    --green-2:#1f6b43;
+    --green-soft:#e3ece2;
+    --straw:#f2b705;
+    --straw-ink:#2e2200;
+    --price:#b23a1f;
+    --line:#dde2d5;
+    --on-green:#f1f5ee;
+    --on-green-muted:#b9cbbd;
+    --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+    --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --wrap:1180px;
+    --r:12px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;overflow-x:clip}
-  body{
-    font-family:"Be Vietnam Pro",system-ui,sans-serif;
-    background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px;overflow-x:clip;
-  }
-  img,svg{display:block;max-width:100%}
+  body{font-family:var(--body);font-size:16px;line-height:1.6;color:var(--ink);background:var(--bg);overflow-x:clip}
+  img{display:block;max-width:100%;height:auto}
   a{color:inherit}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.01em}
-  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--moss);font-weight:600}
-  .latin{font-family:"Fraunces",serif;font-style:italic;color:var(--ink-soft)}
-  section{padding:96px 0}
-  .section-head{max-width:640px;margin-bottom:48px}
-  .section-head h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:10px 0 14px}
-  .section-head p{color:var(--ink-soft)}
+  .wrap{max-width:var(--wrap);margin:0 auto;
+        padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:1.02;letter-spacing:.005em;text-wrap:balance}
+  .kicker{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-2)}
+  section{padding-block:80px}
+  .head{max-width:760px;margin-bottom:40px}
+  .head h2{font-size:clamp(2.1rem,5vw,3.3rem);margin:8px 0 14px;color:var(--green)}
+  .head p{color:var(--muted);font-size:1.05rem}
+  .num{font-variant-numeric:tabular-nums}
+  :focus-visible{outline:3px solid var(--straw);outline-offset:2px}
 
-  /* Buttons */
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;
-       font-weight:600;text-decoration:none;transition:transform .15s,background .15s}
+  /* Nút */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 24px;border-radius:999px;
+       font-weight:700;text-decoration:none;font-size:1rem;transition:transform .15s ease,background-color .15s ease}
   .btn:hover{transform:translateY(-2px)}
-  .btn-primary{background:var(--amber);color:#fff}
-  .btn-primary:hover{background:var(--amber-dark)}
-  .btn-ghost{border:1.5px solid currentColor}
+  .btn-call{background:var(--straw);color:var(--straw-ink)}
+  .btn-call:hover{background:#ffc928}
+  .btn-line{border:2px solid currentColor}
+  .btn svg{width:20px;height:20px;flex:none}
 
-  /* Nav */
-  .nav{position:sticky;top:0;z-index:10;background:rgba(244,239,228,.88);backdrop-filter:blur(10px);
-       border-bottom:1px solid var(--line)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-size:1.3rem;font-weight:600;text-decoration:none}
-  .logo svg{width:30px;height:30px;color:var(--forest)}
-  .nav ul{display:flex;gap:30px;list-style:none;font-size:.95rem}
-  .nav ul a{text-decoration:none;color:var(--ink-soft)}
-  .nav ul a:hover{color:var(--ink)}
-  .nav .btn{padding:10px 20px;font-size:.9rem}
+  /* Thanh trên cùng */
+  .topbar{background:var(--green);color:var(--on-green-muted);font-size:.85rem}
+  .topbar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding-block:8px}
+  .topbar b{color:var(--on-green)}
+
+  /* Header */
+  .site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+  .site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand img{width:62px;height:auto;border-radius:6px}
+  .brand strong{display:block;font-family:var(--display);font-weight:800;font-size:1.45rem;line-height:1;text-transform:uppercase;color:var(--green)}
+  .brand span{display:block;font-size:.78rem;color:var(--muted)}
+  .menu{display:flex;gap:22px;list-style:none;font-weight:600;font-size:.94rem}
+  .menu a{text-decoration:none;color:var(--muted)}
+  .menu a:hover{color:var(--green)}
+  .site-head .btn{min-height:44px;padding:8px 18px;font-size:.95rem}
 
   /* Hero */
-  .hero{padding:72px 0 96px;overflow:hidden}
-  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
-  .hero h1{font-size:clamp(2.5rem,6vw,4.6rem);margin:16px 0 22px}
-  .hero h1 em{color:var(--moss);font-weight:400}
-  .hero p.lead{font-size:1.12rem;color:var(--ink-soft);max-width:520px;margin-bottom:32px}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
-  .hero-stats{display:flex;gap:40px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
-  .hero-stats strong{display:block;font-family:"Fraunces",serif;font-size:2rem;font-weight:600}
-  .hero-stats span{font-size:.85rem;color:var(--ink-soft)}
+  .hero{background:var(--green);color:var(--on-green);padding-block:56px 0;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+  .hero .kicker{color:var(--straw)}
+  .hero h1{font-size:clamp(2.6rem,6.4vw,4.9rem);margin:14px 0 18px}
+  .hero h1 .hl{color:var(--straw);display:block}
+  .hero p.lead{font-size:1.1rem;color:var(--on-green-muted);max-width:560px;margin-bottom:28px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+  .hero-photo{position:relative}
+  .hero-photo img{border-radius:18px;aspect-ratio:4/3;object-fit:cover;width:100%}
+  .hero-photo .inset{position:absolute;left:-28px;bottom:-28px;width:46%;border:6px solid var(--green);border-radius:16px;aspect-ratio:3/2;object-fit:cover}
+  .seal{position:absolute;right:-10px;top:-14px;width:118px;height:118px;border-radius:50%;background:var(--straw);color:var(--straw-ink);
+        display:grid;place-items:center;text-align:center;transform:rotate(8deg);box-shadow:0 12px 26px -12px rgba(0,0,0,.5)}
+  .seal b{display:block;font-family:var(--display);font-size:2rem;line-height:.9}
+  .seal span{font-size:.72rem;font-weight:700;line-height:1.2;text-transform:uppercase}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:64px;border-top:1px solid rgba(241,245,238,.18)}
+  .stats div{padding:22px 16px 26px 0}
+  .stats b{display:block;font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--straw)}
+  .stats span{font-size:.9rem;color:var(--on-green-muted)}
 
-  .specimen-board{position:relative;aspect-ratio:4/5;background:var(--forest);border-radius:24px;
-      padding:28px;color:var(--paper);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:18px;
-      box-shadow:0 30px 60px -30px rgba(31,61,47,.6)}
-  .specimen-board::before{content:"";position:absolute;inset:12px;border:1px solid rgba(244,239,228,.2);border-radius:16px;pointer-events:none}
-  .pin{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}
-  .pin svg{width:70%;height:auto}
-  .pin small{font-family:"Fraunces",serif;font-style:italic;font-size:.82rem;opacity:.8}
-  .stamp{position:absolute;right:-14px;bottom:36px;background:var(--amber);color:#fff;border-radius:50%;
-      width:112px;height:112px;display:grid;place-items:center;text-align:center;font-size:.78rem;font-weight:600;
-      line-height:1.25;transform:rotate(-12deg);box-shadow:0 10px 24px -10px rgba(0,0,0,.4)}
-  .stamp b{display:block;font-family:"Fraunces",serif;font-size:1.5rem}
+  /* Dải báo chí */
+  .press{background:var(--surface);border-bottom:1px solid var(--line)}
+  .press .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 30px;padding-block:20px}
+  .press small{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .press span{font-family:var(--display);font-weight:700;font-size:1.25rem;text-transform:uppercase;color:#7b867d}
 
-  /* Trust strip */
-  .strip{background:var(--forest);color:var(--paper);padding:22px 0}
-  .strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;font-size:.92rem}
-  .strip span::before{content:"✦";color:var(--amber);margin-right:10px}
+  /* Sản phẩm */
+  .animals{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .animal{background:var(--surface);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
+  .animal img{aspect-ratio:3/2;object-fit:cover;width:100%}
+  .animal .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .animal h3{font-size:2rem;color:var(--green)}
+  .animal p{color:var(--muted)}
+  .animal ul{list-style:none;display:grid;gap:6px;font-size:.95rem}
+  .animal li{padding-left:22px;position:relative}
+  .animal li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;border-radius:2px;background:var(--green-2);transform:rotate(45deg)}
+  .animal .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+  .tag{background:var(--green-soft);color:var(--green);font-weight:700;font-size:.85rem;padding:6px 12px;border-radius:999px}
+  .tag.price{background:#fbeee9;color:var(--price)}
+  .extra{margin-top:22px;color:var(--muted);font-size:.95rem}
 
-  /* Categories */
-  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .cat{background:var(--paper-2);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;
-       border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
-  .cat:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(31,61,47,.5)}
-  .cat .icon{width:64px;height:64px;border-radius:50%;background:var(--paper);display:grid;place-items:center;margin-bottom:22px;color:var(--forest)}
-  .cat .icon svg{width:38px}
-  .cat h3{font-size:1.45rem;margin-bottom:8px}
-  .cat p{color:var(--ink-soft);margin-bottom:18px;flex:1}
-  .cat a{font-weight:600;color:var(--amber-dark);text-decoration:none}
+  .startbox{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:18px 22px;align-items:start;background:var(--green-soft);border-radius:var(--r);padding:24px}
+  .startbox .ic{width:48px;height:48px;border-radius:50%;background:var(--green);color:var(--straw);display:grid;place-items:center}
+  .startbox .ic svg{width:24px;height:24px}
+  .startbox h3{font-size:1.5rem;color:var(--green);margin-bottom:6px}
+  .startbox p{color:var(--ink)}
+  .startbox p + p{margin-top:6px}
 
-  /* Products */
-  .products{background:var(--paper-2)}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .card{background:var(--paper);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
-  .card .thumb{aspect-ratio:1;display:grid;place-items:center;position:relative}
-  .card .thumb svg{width:58%}
-  .card .tag{position:absolute;top:12px;left:12px;background:var(--paper);font-size:.72rem;font-weight:600;
-       padding:4px 10px;border-radius:999px;color:var(--forest)}
-  .card .body{padding:18px 18px 20px}
-  .card h3{font-size:1.15rem}
-  .card .latin{font-size:.88rem;margin-bottom:12px}
-  .card .meta{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--ink-soft)}
-  .card .price{font-weight:600;color:var(--ink);font-size:1rem}
-  .t1{background:#d9c9a3}.t2{background:#b8c7a8}.t3{background:#e2b98b}.t4{background:#c9cfc0}
-  .t5{background:#cdb9a5}.t6{background:#a9bfae}.t7{background:#e6d3a3}.t8{background:#d4c2b0}
+  /* Bảng giá */
+  .pricing{background:var(--surface);border-block:1px solid var(--line)}
+  .board{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .board-col{border:2px solid var(--green);border-radius:var(--r);overflow:hidden}
+  .board-col h3{background:var(--green);color:var(--on-green);font-size:1.6rem;padding:14px 22px}
+  .board-col.buy h3{background:var(--straw);color:var(--straw-ink)}
+  .board-col.buy{border-color:var(--straw)}
+  .row{display:flex;align-items:baseline;gap:10px;padding:14px 22px;border-bottom:1px dashed var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .name{flex:0 1 auto;min-width:0}
+  .row .name small{display:block;color:var(--muted);font-size:.82rem}
+  .row .dots{flex:1 1 20px;border-bottom:2px dotted #b9c2b3;transform:translateY(-5px);min-width:20px}
+  .row .val{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--price);white-space:nowrap}
+  .row .val i{font-style:normal;font-size:1rem;color:var(--muted);font-family:var(--body);font-weight:500}
+  .board-col.buy .row .val{color:var(--green)}
+  .fixed-note{display:inline-block;margin:6px 22px 16px;background:var(--green-soft);color:var(--green);font-weight:700;font-size:.85rem;padding:6px 12px;border-radius:6px}
+  .note{margin-top:18px;color:var(--muted);font-size:.9rem}
 
-  /* Why */
-  .why .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
-  .why-list{display:grid;gap:26px}
-  .why-item{display:grid;grid-template-columns:52px 1fr;gap:18px;padding-bottom:26px;border-bottom:1px solid var(--line)}
-  .why-item:last-child{border-bottom:0}
-  .why-item .num{font-family:"Fraunces",serif;font-size:1.6rem;color:var(--amber)}
-  .why-item h3{font-size:1.2rem;margin-bottom:6px}
-  .why-item p{color:var(--ink-soft)}
+  /* Gói bao tiêu */
+  .packs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .pack{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:4px;min-width:0}
+  .pack .p-name{font-family:var(--display);font-weight:800;font-size:2.1rem;line-height:1;color:var(--green)}
+  .pack .p-trays{font-weight:600}
+  .pack .p-quota{color:var(--muted);font-size:.92rem}
+  .pack .p-value{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted)}
+  .pack .p-quota + .p-value{margin-top:10px}
+  .pack .p-value b{display:block;font-family:var(--display);font-size:1.5rem;color:var(--price);font-weight:800}
+  .pack.big{background:var(--green);border-color:var(--green);color:var(--on-green)}
+  .pack.big .p-name{color:var(--straw)}
+  .pack.big .p-quota,.pack.big .p-value{color:var(--on-green-muted)}
+  .pack.big .p-value{border-top-color:rgba(241,245,238,.25)}
+  .pack.big .p-value b{color:var(--straw)}
+  .pack .badge{align-self:flex-start;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--straw);color:var(--straw-ink);padding:3px 8px;border-radius:4px;margin-bottom:6px}
 
-  /* Steps */
-  .steps-sec{background:var(--forest);color:var(--paper)}
-  .steps-sec .eyebrow{color:#a9c493}
-  .steps-sec .section-head p{color:rgba(244,239,228,.75)}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
-  .step{border-top:1px solid rgba(244,239,228,.25);padding-top:22px}
-  .step::before{counter-increment:s;content:"0" counter(s);font-family:"Fraunces",serif;font-size:2.4rem;color:var(--amber);display:block;margin-bottom:8px}
-  .step h3{font-size:1.15rem;margin-bottom:6px}
-  .step p{font-size:.94rem;color:rgba(244,239,228,.72)}
+  .terms{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+  .terms h3{font-size:1.7rem;color:var(--green);margin-bottom:14px}
+  .terms ol{list-style:none;counter-reset:t;display:grid;gap:14px}
+  .terms ol li{counter-increment:t;display:grid;grid-template-columns:36px 1fr;gap:12px}
+  .terms ol li::before{content:counter(t);width:32px;height:32px;border-radius:50%;background:var(--green);color:var(--straw);
+       display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.1rem}
+  .promise{background:var(--green);color:var(--on-green);border-radius:var(--r);padding:28px}
+  .promise h3{color:var(--straw)}
+  .promise ul{list-style:none;display:grid;gap:12px}
+  .promise li{padding-left:28px;position:relative;color:var(--on-green)}
+  .promise li::before{content:"✓";position:absolute;left:0;top:0;color:var(--straw);font-weight:800}
 
-  /* Reviews */
-  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .review{background:var(--paper-2);border-radius:var(--radius);padding:28px;border:1px solid var(--line)}
-  .review blockquote{font-family:"Fraunces",serif;font-size:1.12rem;line-height:1.5;margin-bottom:20px}
-  .review .who{display:flex;align-items:center;gap:12px;font-size:.9rem}
-  .avatar{width:40px;height:40px;border-radius:50%;background:var(--moss);color:#fff;display:grid;place-items:center;font-weight:600}
-  .stars{color:var(--amber);letter-spacing:2px;margin-bottom:12px}
+  /* Đầu ra */
+  .outlet{background:var(--green-soft)}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .gallery figure{background:var(--surface);border-radius:10px;overflow:hidden}
+  .gallery img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .gallery figcaption{padding:10px 12px 12px;font-size:.88rem;font-weight:600;line-height:1.35}
+  .gallery .wide{grid-column:span 2}
+  .gallery .wide img{aspect-ratio:8/3}
+  .channels{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;margin-top:40px}
+  .channels h3{font-size:1.6rem;color:var(--green);margin-bottom:12px}
+  .channels ul{list-style:none;display:grid;gap:10px}
+  .channels li{background:var(--surface);border-radius:10px;padding:12px 16px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--surface);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-weight:600;font-size:.92rem}
 
-  /* FAQ */
-  .faq .wrap{max-width:820px}
-  details{border-bottom:1px solid var(--line);padding:22px 0}
-  summary{cursor:pointer;font-weight:600;font-size:1.06rem;list-style:none;display:flex;justify-content:space-between;gap:20px}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-family:"Fraunces",serif;font-size:1.5rem;line-height:1;color:var(--amber);transition:transform .2s}
-  details[open] summary::after{transform:rotate(45deg)}
-  details p{color:var(--ink-soft);margin-top:12px}
+  /* Mua hàng */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+  .step .n{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--straw);color:var(--straw-ink);font-family:var(--display);font-weight:800;font-size:1.5rem}
+  .step h3{font-size:1.35rem;color:var(--green);margin:12px 0 8px}
+  .step p{color:var(--muted);font-size:.94rem}
+  .banks{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+  .bank{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+  .bank small{color:var(--muted);font-weight:600}
+  .bank .acc{font-family:var(--display);font-weight:800;font-size:2rem;letter-spacing:.04em;color:var(--price);user-select:all;margin:4px 0}
+  .bank .owner{font-weight:700;text-transform:uppercase}
+  .bank-warn{margin-top:14px;font-size:.9rem;color:var(--muted)}
 
-  /* CTA */
-  .cta{padding:0 0 96px}
-  .cta-box{background:var(--amber);color:#fff;border-radius:28px;padding:64px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
-  .cta-box h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:12px}
-  .cta-box p{opacity:.92}
-  .contact{display:grid;gap:12px}
-  .contact a{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.35);padding:16px 20px;border-radius:12px;text-decoration:none;font-weight:600}
-  .contact a:hover{background:rgba(255,255,255,.24)}
+  /* Video & tin tức */
+  .media{background:var(--surface);border-block:1px solid var(--line)}
+  .media-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start}
+  .tv{position:relative;border-radius:var(--r);overflow:hidden;display:block}
+  .tv img{width:100%;aspect-ratio:2/1;object-fit:cover}
+  .tv .play{position:absolute;left:16px;bottom:16px;background:var(--straw);color:var(--straw-ink);font-weight:700;padding:10px 16px;border-radius:999px;display:flex;align-items:center;gap:8px}
+  .tv .play svg{width:18px;height:18px}
+  .yt{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+  .yt .btn{color:var(--green)}
+  .list{list-style:none;display:grid}
+  .list li{border-bottom:1px solid var(--line)}
+  .list a{display:flex;justify-content:space-between;gap:12px;padding:13px 0;text-decoration:none;font-weight:600}
+  .list a:hover{color:var(--green-2)}
+  .list a span:last-child{color:var(--green-2);flex:none}
+  .media h3{font-size:1.6rem;color:var(--green);margin-bottom:6px}
+  .license{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;background:var(--green-soft);border-radius:var(--r);padding:22px 24px}
+  .license b{font-family:var(--display);font-size:1.4rem;text-transform:uppercase;color:var(--green)}
+  .license ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px;font-weight:600}
+  .license li::before{content:"✓ ";color:var(--green-2)}
 
-  footer{border-top:1px solid var(--line);padding:36px 0;font-size:.88rem;color:var(--ink-soft)}
-  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+  /* Liên hệ */
+  .contact{background:var(--green);color:var(--on-green)}
+  .contact .head h2{color:var(--on-green)}
+  .contact .head p{color:var(--on-green-muted)}
+  .contact .kicker{color:var(--straw)}
+  .sites{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .site{background:rgba(241,245,238,.06);border:1px solid rgba(241,245,238,.18);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:14px}
+  .site h3{font-size:1.8rem;color:var(--straw)}
+  .site address{font-style:normal;font-size:1.05rem}
+  .phones{display:grid;gap:10px}
+  .phones a{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--straw);color:var(--straw-ink);text-decoration:none;
+            padding:12px 18px;border-radius:10px;font-weight:700}
+  .phones a b{font-family:var(--display);font-size:1.5rem;letter-spacing:.02em}
+  .map-link{color:var(--on-green);font-weight:600}
 
-  /* Responsive */
-  @media (max-width:960px){
-    .nav ul{display:none}
-    .hero .wrap,.why .wrap,.cta-box{grid-template-columns:1fr}
-    .specimen-board{max-width:460px;width:100%;margin:0 auto}
-    .stamp{right:4px}
-    .cats,.reviews{grid-template-columns:1fr}
-    .grid,.steps{grid-template-columns:repeat(2,1fr)}
-    .cta-box{padding:40px 28px}
+  footer{background:#092a1a;color:var(--on-green-muted);font-size:.88rem;padding-block:28px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  /* Thanh gọi nhanh (điện thoại) */
+  .callbar{display:none}
+
+  @media (max-width:1024px){
+    .menu{display:none}
+    .packs{grid-template-columns:repeat(3,1fr)}
   }
-  @media (max-width:520px){
-    section{padding:72px 0}
-    .wrap{padding:0 16px}
-    .grid{gap:12px}
-    .card .body{padding:14px}
-    .card .meta{flex-direction:column;align-items:flex-start;gap:2px}
+  @media (max-width:900px){
+    section{padding-block:60px}
+    .hero-grid,.board,.terms,.channels,.media-grid,.sites,.banks{grid-template-columns:1fr}
+    .hero-photo{margin:12px 12px 20px 20px}
+    .animals{grid-template-columns:1fr}
+    .animal{display:grid;grid-template-columns:40% 1fr}
+    .animal img{height:100%;aspect-ratio:auto}
+    .stats{grid-template-columns:repeat(2,1fr);margin-top:48px}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .packs{grid-template-columns:repeat(2,1fr)}
+    .site-head .btn{display:none}
+    .callbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--green);
+             padding:8px max(10px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px));
+             box-shadow:0 -8px 24px -12px rgba(0,0,0,.4)}
+    .callbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border-radius:10px;text-decoration:none;
+               background:var(--straw);color:var(--straw-ink);font-weight:700;line-height:1.15;font-size:.8rem}
+    .callbar a:last-child{background:var(--on-green);color:var(--green)}
+    .callbar a b{font-family:var(--display);font-size:1.3rem}
+    footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  }
+  @media (max-width:560px){
+    .topbar .addr{display:none}
+    .brand img{width:50px}
+    .brand strong{font-size:1.25rem}
+    .animal{grid-template-columns:1fr}
+    .animal img{aspect-ratio:3/2;height:auto}
     .steps{grid-template-columns:1fr}
-    .hero-stats{gap:24px}
-    .hero-stats strong{font-size:1.6rem}
-    .nav .btn{display:none}
+    .gallery .wide img{aspect-ratio:2/1}
+    .row{padding:12px 16px}
+    .row .val{font-size:1.4rem}
+    .fixed-note{margin-inline:16px}
+    .pack{padding:16px}
+    .pack .p-name{font-size:1.8rem}
+    .pack .p-value b{font-size:1.25rem}
+    .seal{width:96px;height:96px;right:-6px}
+    .seal b{font-size:1.6rem}
+    .stats b{font-size:2.2rem}
+    .hero-cta .btn{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn{transition:none}
+    .btn:hover{transform:none}
   }
 </style>
 </head>
 <body>
 
-<!-- ===== SVG minh hoạ (thay bằng ảnh thật khi có) ===== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="beetle" viewBox="0 0 100 120">
-      <g stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none">
-        <path d="M42 22 C36 12 30 8 24 6 M58 22 C64 12 70 8 76 6"/>
-        <path d="M30 50 L14 42 L8 30 M30 66 L12 68 L6 80 M32 84 L16 98 L14 112"/>
-        <path d="M70 50 L86 42 L92 30 M70 66 L88 68 L94 80 M68 84 L84 98 L86 112"/>
-      </g>
-      <ellipse cx="50" cy="26" rx="10" ry="8" fill="currentColor"/>
-      <path d="M32 36 Q50 28 68 36 L66 50 Q50 54 34 50 Z" fill="currentColor"/>
-      <path d="M33 52 Q50 48 67 52 Q72 90 50 112 Q28 90 33 52 Z" fill="currentColor"/>
-      <path d="M50 52 L50 110" stroke="#f4efe4" stroke-width="1.5" opacity=".5"/>
-    </symbol>
-    <symbol id="butterfly" viewBox="0 0 120 100">
-      <path d="M58 30 C40 2 6 4 8 26 C10 44 34 50 56 46 Z" fill="currentColor"/>
-      <path d="M62 30 C80 2 114 4 112 26 C110 44 86 50 64 46 Z" fill="currentColor"/>
-      <path d="M56 50 C34 52 20 72 32 86 C42 96 54 78 58 58 Z" fill="currentColor" opacity=".8"/>
-      <path d="M64 50 C86 52 100 72 88 86 C78 96 66 78 62 58 Z" fill="currentColor" opacity=".8"/>
-      <rect x="57" y="24" width="6" height="56" rx="3" fill="currentColor"/>
-      <path d="M58 26 C54 14 48 8 44 6 M62 26 C66 14 72 8 76 6" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <circle cx="26" cy="24" r="6" fill="#f4efe4" opacity=".55"/>
-      <circle cx="94" cy="24" r="6" fill="#f4efe4" opacity=".55"/>
-    </symbol>
-    <symbol id="ant" viewBox="0 0 100 120">
-      <g stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none">
-        <path d="M44 14 C38 6 32 4 26 4 M56 14 C62 6 68 4 74 4"/>
-        <path d="M44 46 L22 34 L14 20 M44 52 L18 56 L10 70 M46 58 L24 78 L22 96"/>
-        <path d="M56 46 L78 34 L86 20 M56 52 L82 56 L90 70 M54 58 L76 78 L78 96"/>
-      </g>
-      <ellipse cx="50" cy="22" rx="11" ry="10" fill="currentColor"/>
-      <ellipse cx="50" cy="50" rx="8" ry="14" fill="currentColor"/>
-      <ellipse cx="50" cy="88" rx="16" ry="24" fill="currentColor"/>
-    </symbol>
-    <symbol id="larva" viewBox="0 0 120 80">
-      <g fill="currentColor">
-        <circle cx="18" cy="44" r="11"/><circle cx="34" cy="38" r="12"/><circle cx="51" cy="34" r="12.5"/>
-        <circle cx="68" cy="34" r="12.5"/><circle cx="85" cy="38" r="12"/><circle cx="100" cy="44" r="10"/>
-      </g>
-      <circle cx="104" cy="41" r="2" fill="#f4efe4"/>
-    </symbol>
-  </defs>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
+  <symbol id="i-seed" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 21v-9M12 12C12 7 8 4 3 4c0 5 4 8 9 8zM12 14c0-4 3-7 8-7 0 4-3 7-8 7z"/></symbol>
 </svg>
 
-<!-- ===== NAV ===== -->
-<nav class="nav">
+<div class="topbar">
   <div class="wrap">
-    <a href="#" class="logo"><svg><use href="#beetle"/></svg>Côn Trùng Xanh</a>
-    <ul>
-      <li><a href="#danh-muc">Danh mục</a></li>
-      <li><a href="#san-pham">Sản phẩm</a></li>
-      <li><a href="#quy-trinh">Giao hàng</a></li>
-      <li><a href="#hoi-dap">Hỏi đáp</a></li>
-    </ul>
-    <a href="#lien-he" class="btn btn-primary">Đặt hàng</a>
+    <span class="addr">Cơ sở 1: 119 Tam Trinh, Mai Động, Hoàng Mai, Hà Nội · Cơ sở 2: Thôn Hóp, Mỹ Phúc, Mỹ Lộc, Nam Định</span>
+    <span>Hotline: <b class="num">097 487 0000</b> · <b class="num">038 995 8888</b></span>
   </div>
-</nav>
+</div>
 
-<!-- ===== HERO ===== -->
-<header class="hero">
+<header class="site-head">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Trại nuôi côn trùng · Từ 2020</span>
-      <h1>Thế giới nhỏ bé, <em>sống động</em> trong tay bạn</h1>
-      <p class="lead">Côn trùng cảnh khoẻ mạnh, thức ăn sống sạch cho bò sát &amp; chim cảnh. Tự nhân giống tại trại, giao tận nơi trên toàn quốc kèm hướng dẫn nuôi chi tiết.</p>
-      <div class="hero-actions">
-        <a href="#san-pham" class="btn btn-primary">Xem sản phẩm →</a>
-        <a href="#lien-he" class="btn btn-ghost">Tư vấn qua Zalo</a>
-      </div>
-      <div class="hero-stats">
-        <div><strong>40+</strong><span>Loài đang nuôi</span></div>
-        <div><strong>12k</strong><span>Đơn đã giao</span></div>
-        <div><strong>98%</strong><span>Sống khi nhận</span></div>
-      </div>
-    </div>
-    <div class="specimen-board" aria-label="Bảng mẫu côn trùng">
-      <div class="pin" style="color:#e2b98b"><svg><use href="#beetle"/></svg><small>Dorcus titanus</small></div>
-      <div class="pin" style="color:#a9c493"><svg><use href="#butterfly"/></svg><small>Papilio memnon</small></div>
-      <div class="pin" style="color:#d9c9a3"><svg><use href="#ant"/></svg><small>Oecophylla smaragdina</small></div>
-      <div class="pin" style="color:#e6d3a3"><svg><use href="#larva"/></svg><small>Tenebrio molitor</small></div>
-      <div class="stamp"><span><b>98%</b>đảm bảo<br>sống</span></div>
-    </div>
+    <a class="brand" href="#">
+      <img src="images/logo.jpg" alt="Logo cơ sở côn trùng Thanh Xuân" width="186" height="118">
+      <div><strong>Trang trại Thanh Xuân</strong><span>Dế mèn · Tắc kè · Bọ cạp · từ 2004</span></div>
+    </a>
+    <ul class="menu">
+      <li><a href="#san-pham">Sản phẩm</a></li>
+      <li><a href="#bang-gia">Bảng giá</a></li>
+      <li><a href="#goi-bao-tieu">Gói bao tiêu</a></li>
+      <li><a href="#dau-ra">Đầu ra</a></li>
+      <li><a href="#mua-hang">Mua hàng</a></li>
+      <li><a href="#lien-he">Liên hệ</a></li>
+    </ul>
+    <a class="btn btn-call" href="tel:0974870000"><svg><use href="#i-phone"/></svg>097 487 0000</a>
   </div>
 </header>
 
-<!-- ===== TRUST STRIP ===== -->
-<div class="strip">
+<!-- ============ HERO ============ -->
+<section class="hero">
   <div class="wrap">
-    <span>Giao hoả tốc nội thành</span>
-    <span>Đóng hộp thoáng khí chuyên dụng</span>
-    <span>Bao chết 1 đổi 1</span>
-    <span>Hỗ trợ nuôi trọn đời</span>
+    <div class="hero-grid">
+      <div>
+        <span class="kicker">Nhà cung cấp côn trùng trong nước và ngoài nước từ 2004</span>
+        <h1>Cung cấp giống dế mèn, tắc kè, bọ cạp <span class="hl">Bao tiêu đầu ra không thời hạn</span></h1>
+        <p class="lead">Bà con chỉ cần mua giống một lần rồi tự nhân giống mãi mãi. Trang trại ký hợp đồng, đóng dấu đầy đủ và thu mua thương phẩm hàng tháng với giá cố định niêm yết trên website.</p>
+        <div class="hero-cta">
+          <a class="btn btn-call" href="tel:0974870000"><svg><use href="#i-phone"/></svg>Gọi đặt giống: 097 487 0000</a>
+          <a class="btn btn-line" href="#goi-bao-tieu">Xem các gói bao tiêu</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="images/trai-de-thung-go.jpg" alt="Các thùng gỗ nuôi dế mèn tại trang trại Thanh Xuân" width="1200" height="799">
+        <img class="inset" src="images/tac-ke-tren-tay.jpg" alt="Tắc kè giống trên tay người nuôi" width="600" height="399">
+        <div class="seal"><span><b>VTV2</b>phát sóng<br>từ 2009</span></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div><b class="num">2004</b><span>Khởi nghiệp chăn nuôi côn trùng</span></div>
+      <div><b class="num">2009</b><span>VTV2 phát sóng hàng năm đến nay</span></div>
+      <div><b class="num">4000+</b><span>Video trên các kênh YouTube</span></div>
+      <div><b class="num">9 nước</b><span>Đã xuất khẩu giống &amp; thương phẩm</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="press">
+  <div class="wrap">
+    <small>Đã được giới thiệu trên</small>
+    <span>VTV2 · Bạn nhà nông</span>
+    <span>Truyền hình CAND</span>
+    <span>Báo Dân Trí</span>
+    <span>VietnamNet</span>
+    <span>Công An Nhân Dân</span>
   </div>
 </div>
 
-<!-- ===== DANH MỤC ===== -->
-<section id="danh-muc">
+<!-- ============ SẢN PHẨM ============ -->
+<section id="san-pham">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Danh mục</span>
-      <h2>Bạn đang tìm gì?</h2>
-      <p>Dù bạn là người mới muốn nuôi thử một chú bọ, hay chủ trại bò sát cần nguồn thức ăn ổn định — chúng tôi đều có.</p>
+    <div class="head">
+      <span class="kicker">Sản phẩm</span>
+      <h2>Ba vật nuôi chủ lực của trang trại</h2>
+      <p>Cung cấp giống, thu mua thương phẩm và phân phối sỉ, lẻ dế mèn, tắc kè, bọ cạp. Trang trại nuôi theo quy trình khép kín, áp dụng mô hình an toàn sinh học.</p>
     </div>
-    <div class="cats">
-      <article class="cat">
-        <div class="icon"><svg viewBox="0 0 100 120"><use href="#beetle"/></svg></div>
-        <h3>Côn trùng cảnh</h3>
-        <p>Bọ kẹp kìm, bọ hung ba sừng, bọ ngựa lá, bướm phượng… những loài đẹp, dễ nuôi, phù hợp làm thú cưng để bàn.</p>
-        <a href="#san-pham">Khám phá →</a>
+
+    <div class="animals">
+      <article class="animal">
+        <img src="images/de-men-thai.jpg" alt="Dế mèn Thái, dế cái" width="600" height="396" loading="lazy">
+        <div class="body">
+          <h3>Dế mèn</h3>
+          <p>Dế Thái sinh sản nhiều, nuôi thu hoạch thời gian ngắn, dễ nuôi, sản lượng tăng rất nhanh.</p>
+          <ul>
+            <li>Khay trứng dế giống (dế Thái)</li>
+            <li>Dế mèn thương phẩm, dế thịt</li>
+            <li>Dế mèn đông lạnh</li>
+            <li>Dế sống cho chim cảnh, cá cảnh, gà cảnh</li>
+          </ul>
+          <div class="tags"><span class="tag price num">Khay trứng từ 150.000đ</span><span class="tag num">Thu mua 130.000đ/kg</span></div>
+        </div>
       </article>
-      <article class="cat">
-        <div class="icon"><svg viewBox="0 0 120 80"><use href="#larva"/></svg></div>
-        <h3>Thức ăn sống</h3>
-        <p>Sâu gạo, sâu canxi, dế mèn, gián Dubia — nuôi bằng cám sạch, bán lẻ theo hộp hoặc sỉ theo kg cho trại.</p>
-        <a href="#san-pham">Xem bảng giá →</a>
+      <article class="animal">
+        <img src="images/tac-ke.jpg" alt="Tắc kè giống trên khúc gỗ" width="600" height="449" loading="lazy">
+        <div class="body">
+          <h3>Tắc kè</h3>
+          <p>Cung cấp tắc kè giống các độ tuổi, tắc kè bố mẹ sinh sản và tắc kè thương phẩm.</p>
+          <ul>
+            <li>Tắc kè giống 3 tháng tuổi</li>
+            <li>Tắc kè sinh sản, tắc kè bố mẹ</li>
+            <li>Tắc kè thương phẩm, tắc kè thịt</li>
+            <li>Trứng tắc kè, rượu ngâm tắc kè</li>
+          </ul>
+          <div class="tags"><span class="tag price num">Giống từ 60.000đ</span><span class="tag">Bao tiêu đầu ra</span></div>
+        </div>
       </article>
-      <article class="cat">
-        <div class="icon"><svg viewBox="0 0 100 120"><use href="#ant"/></svg></div>
-        <h3>Bộ kit &amp; phụ kiện</h3>
-        <p>Hộp nuôi, giá thể, mùn gỗ lên men, thạch dinh dưỡng và tổ kiến mica — đủ đồ để bắt đầu ngay trong ngày.</p>
-        <a href="#san-pham">Chọn bộ kit →</a>
+      <article class="animal">
+        <img src="images/bo-cap.jpg" alt="Bọ cạp giống tại trang trại" width="600" height="450" loading="lazy">
+        <div class="body">
+          <h3>Bọ cạp</h3>
+          <p>Bọ cạp giống 5 đến 6 tháng tuổi. Mua giống từ 3 triệu được thu mua toàn bộ thương phẩm đúng nguồn gốc.</p>
+          <ul>
+            <li>Bọ cạp giống 5 tháng, 6 tháng tuổi</li>
+            <li>Bọ cạp thương phẩm</li>
+            <li>Rượu ngâm bọ cạp, món ăn từ bọ cạp</li>
+          </ul>
+          <div class="tags"><span class="tag price num">Giống từ 15.000đ</span><span class="tag num">Thu mua 300.000đ/kg</span></div>
+        </div>
       </article>
+    </div>
+    <p class="extra">Ngoài ra trang trại còn bán buôn trứng kiến, sâu, rết và nhiều loại côn trùng theo mùa cho các đại lý, nhà hàng ở các tỉnh.</p>
+
+    <div class="startbox">
+      <div class="ic"><svg><use href="#i-seed"/></svg></div>
+      <div>
+        <h3>Mới bắt đầu nên nuôi con gì trước?</h3>
+        <p>Nên chuẩn bị dụng cụ và nuôi dế trước. Nuôi khoảng gần 1 tháng, có từ chục thùng dế trở lên thì mới nuôi được tắc kè và bọ cạp.</p>
+        <p>Lưu ý: kỹ thuật nuôi dế miền Bắc và miền Nam khác nhau hoàn toàn. Trang trại hướng dẫn kỹ thuật nuôi, cách làm thùng nuôi dế và chuồng nuôi tắc kè, bọ cạp cho bà con.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SẢN PHẨM ===== -->
-<section id="san-pham" class="products">
+<!-- ============ BẢNG GIÁ ============ -->
+<section id="bang-gia" class="pricing">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Nổi bật tuần này</span>
-      <h2>Bộ sưu tập đang có sẵn</h2>
-      <p>Giá mang tính tham khảo — nhắn tin để nhận giá theo số lượng và tình trạng hàng mới nhất.</p>
+    <div class="head">
+      <span class="kicker">Bảng giá niêm yết</span>
+      <h2>Giá giống &amp; giá thu mua</h2>
+      <p>Giá thu mua ổn định, không thay đổi, được niêm yết trên website và ghi trong hợp đồng.</p>
     </div>
-    <div class="grid">
-      <article class="card">
-        <div class="thumb t1" style="color:#3b2a18"><span class="tag">Bán chạy</span><svg viewBox="0 0 100 120"><use href="#beetle"/></svg></div>
-        <div class="body"><h3>Bọ kẹp kìm</h3><p class="latin">Dorcus titanus</p>
-          <div class="meta"><span>Con trưởng thành</span><span class="price">250.000đ</span></div></div>
-      </article>
-      <article class="card">
-        <div class="thumb t2" style="color:#1f3d2f"><span class="tag">Hiếm</span><svg viewBox="0 0 120 100"><use href="#butterfly"/></svg></div>
-        <div class="body"><h3>Kén bướm phượng</h3><p class="latin">Papilio memnon</p>
-          <div class="meta"><span>Kén sắp nở</span><span class="price">90.000đ</span></div></div>
-      </article>
-      <article class="card">
-        <div class="thumb t3" style="color:#5a2e0e"><svg viewBox="0 0 100 120"><use href="#ant"/></svg></div>
-        <div class="body"><h3>Tổ kiến vàng</h3><p class="latin">Oecophylla smaragdina</p>
-          <div class="meta"><span>Kèm tổ mica</span><span class="price">450.000đ</span></div></div>
-      </article>
-      <article class="card">
-        <div class="thumb t4" style="color:#4b5a50"><span class="tag">Mới</span><svg viewBox="0 0 100 120"><use href="#beetle"/></svg></div>
-        <div class="body"><h3>Bọ hung ba sừng</h3><p class="latin">Chalcosoma atlas</p>
-          <div class="meta"><span>Ấu trùng L3</span><span class="price">180.000đ</span></div></div>
-      </article>
-      <article class="card">
-        <div class="thumb t5" style="color:#6b4423"><svg viewBox="0 0 120 80"><use href="#larva"/></svg></div>
-        <div class="body"><h3>Sâu gạo</h3><p class="latin">Tenebrio molitor</p>
-          <div class="meta"><span>Hộp 500g</span><span class="price">60.000đ</span></div></div>
-      </article>
-      <article class="card">
-        <div class="thumb t6" style="color:#1d2a22"><svg viewBox="0 0 120 80"><use href="#larva"/></svg></div>
-        <div class="body"><h3>Sâu canxi</h3><p class="latin">Hermetia illucens</p>
-          <div class="meta"><span>Hộp 500g</span><span class="price">55.000đ</span></div></div>
-      </article>
-      <article class="card">
-        <div class="thumb t7" style="color:#7a4b12"><svg viewBox="0 0 100 120"><use href="#ant"/></svg></div>
-        <div class="body"><h3>Dế mèn</h3><p class="latin">Gryllus bimaculatus</p>
-          <div class="meta"><span>Hộp 100 con</span><span class="price">50.000đ</span></div></div>
-      </article>
-      <article class="card">
-        <div class="thumb t8" style="color:#3b2a18"><span class="tag">Combo</span><svg viewBox="0 0 100 120"><use href="#beetle"/></svg></div>
-        <div class="body"><h3>Kit nuôi bọ cho bé</h3><p class="latin">Starter kit</p>
-          <div class="meta"><span>Hộp + bọ + thức ăn</span><span class="price">320.000đ</span></div></div>
-      </article>
+    <div class="board">
+      <div class="board-col">
+        <h3>Giá bán giống</h3>
+        <div class="row"><span class="name">Khay trứng dế<small>Có bao tiêu đầu ra theo gói</small></span><span class="dots"></span><span class="val num">300.000đ <i>/khay</i></span></div>
+        <div class="row"><span class="name">Khay trứng dế<small>Không bán lại thương phẩm</small></span><span class="dots"></span><span class="val num">150.000đ <i>/khay</i></span></div>
+        <div class="row"><span class="name">Tắc kè giống 3 tháng tuổi</span><span class="dots"></span><span class="val num">60.000đ</span></div>
+        <div class="row"><span class="name">Tắc kè giống</span><span class="dots"></span><span class="val num">100.000đ</span></div>
+        <div class="row"><span class="name">Tắc kè sinh sản, tắc kè bố mẹ</span><span class="dots"></span><span class="val num">100.000đ</span></div>
+        <div class="row"><span class="name">Trứng tắc kè</span><span class="dots"></span><span class="val num">60.000đ</span></div>
+        <div class="row"><span class="name">Bọ cạp giống 5 tháng tuổi</span><span class="dots"></span><span class="val num">15.000đ</span></div>
+        <div class="row"><span class="name">Bọ cạp giống 6 tháng tuổi</span><span class="dots"></span><span class="val num">20.000đ</span></div>
+      </div>
+      <div class="board-col buy">
+        <h3>Giá thu mua thương phẩm</h3>
+        <div class="row"><span class="name">Dế mèn thương phẩm</span><span class="dots"></span><span class="val num">130.000đ <i>/kg</i></span></div>
+        <span class="fixed-note">Giá thu mua cố định, không thay đổi</span>
+        <div class="row"><span class="name">Bọ cạp thương phẩm<small>2 đến 2,5 tháng tuổi</small></span><span class="dots"></span><span class="val num">300.000đ <i>/kg</i></span></div>
+        <div class="row"><span class="name">Tắc kè thương phẩm, tắc kè thịt</span><span class="dots"></span><span class="val num">100.000đ</span></div>
+        <div class="row"><span class="name">Thanh toán khi bà con bán hàng</span><span class="dots"></span><span class="val">Trong ngày</span></div>
+      </div>
+    </div>
+    <p class="note">Giá theo niêm yết của trang trại. Vui lòng gọi hotline <b class="num">097 487 0000</b> để xác nhận giá và tình trạng hàng mới nhất.</p>
+  </div>
+</section>
+
+<!-- ============ GÓI BAO TIÊU ============ -->
+<section id="goi-bao-tieu">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker">Hợp đồng bao tiêu dế mèn</span>
+      <h2>Chọn gói giống, trang trại thu mua hàng tháng</h2>
+      <p>Mỗi gói gồm số khay trứng dế và định mức thu mua tối đa mỗi tháng. Tăng gói sẽ được cộng vào gói cũ, trang trại ký hợp đồng thu mua mới theo tổng các gói và gửi cùng trứng.</p>
+    </div>
+
+    <div class="packs">
+      <div class="pack"><span class="p-name num">3 triệu</span><span class="p-trays num">11 khay trứng</span><span class="p-quota num">Thu mua tối đa 25 kg/tháng</span><span class="p-value">Giá trị thu mua tối đa/tháng<b class="num">3.250.000đ</b></span></div>
+      <div class="pack"><span class="p-name num">6 triệu</span><span class="p-trays num">22 khay trứng</span><span class="p-quota num">Thu mua tối đa 45 kg/tháng</span><span class="p-value">Giá trị thu mua tối đa/tháng<b class="num">5.850.000đ</b></span></div>
+      <div class="pack"><span class="p-name num">10 triệu</span><span class="p-trays num">36 khay trứng</span><span class="p-quota num">Thu mua tối đa 80 kg/tháng</span><span class="p-value">Giá trị thu mua tối đa/tháng<b class="num">10.400.000đ</b></span></div>
+      <div class="pack"><span class="p-name num">20 triệu</span><span class="p-trays num">72 khay trứng</span><span class="p-quota num">Thu mua tối đa 1,3 tạ/tháng</span><span class="p-value">Giá trị thu mua tối đa/tháng<b class="num">16.900.000đ</b></span></div>
+      <div class="pack"><span class="p-name num">30 triệu</span><span class="p-trays num">110 khay trứng</span><span class="p-quota num">Thu mua tối đa 1,8 tạ/tháng</span><span class="p-value">Giá trị thu mua tối đa/tháng<b class="num">23.400.000đ</b></span></div>
+      <div class="pack"><span class="p-name num">40 triệu</span><span class="p-trays num">146 khay trứng</span><span class="p-quota num">Thu mua tối đa 2,1 tạ/tháng</span><span class="p-value">Giá trị thu mua tối đa/tháng<b class="num">27.300.000đ</b></span></div>
+      <div class="pack big"><span class="badge">Ký HĐ cung cấp</span><span class="p-name num">50 triệu</span><span class="p-trays num">182 khay trứng</span><span class="p-quota num">Thu mua tối đa 2,5 tạ/tháng</span><span class="p-value">Giá trị thu mua tối đa/tháng<b class="num">32.500.000đ</b></span></div>
+      <div class="pack big"><span class="badge">Ký HĐ cung cấp</span><span class="p-name num">100 triệu</span><span class="p-trays num">366 khay trứng</span><span class="p-quota num">Thu mua tối đa 4 tạ/tháng</span><span class="p-value">Giá trị thu mua tối đa/tháng<b class="num">52.000.000đ</b></span></div>
+    </div>
+    <p class="note">Giá trị thu mua tối đa = định mức tối đa của gói × giá thu mua 130.000đ/kg, chưa trừ chi phí chăn nuôi. Từ gói 50 triệu, bà con có thể ký hợp đồng cung cấp dế sống hoặc dế đông lạnh. Các gói trên 100 triệu xin liên hệ hotline <a class="num" href="tel:0974870000">097 487 0000</a>.</p>
+
+    <div class="terms">
+      <div>
+        <h3>Điều khoản chính của hợp đồng</h3>
+        <ol>
+          <li><span>Bà con mua trứng giống một lần rồi tự nhân ra mãi mãi và bán thương phẩm lâu dài không thời hạn về trang trại Thanh Xuân.</span></li>
+          <li><span>Mỗi lần bán tối thiểu 5 kg đến định mức tối đa của gói, có thể bán 1 lần hoặc nhiều lần trong tháng. Dế bán cho trang trại phải đúng loại dế của trang trại Thanh Xuân.</span></li>
+          <li><span>Trong 6 tháng đầu kể từ khi mua trứng, bà con chỉ cần bán tối thiểu 1 lần với 20% định mức dế thương phẩm của gói, hoặc bán tối đa theo định mức hàng tháng như bình thường.</span></li>
+          <li><span>Từ khi bán lứa đầu tiên, trong 3 tháng liền bất kể thời điểm nào, bà con phải bán tối thiểu 20% dế thương phẩm của gói về trang trại. Nếu vi phạm, trang trại sẽ dừng thu mua; muốn tiếp tục bán theo hợp đồng thì mua thêm trứng để tăng gói.</span></li>
+        </ol>
+      </div>
+      <div class="promise">
+        <h3>Cam kết của trang trại</h3>
+        <ul>
+          <li>Trứng dế được bảo hành 100%, đổi mới miễn phí kể cả do lỗi của người nuôi.</li>
+          <li>Hợp đồng cam kết thu mua có chủ trang trại ký, đóng dấu đầy đủ, tránh rủi ro cho bà con.</li>
+          <li>Giá thu mua không thay đổi, đúng như niêm yết trên website và trên hợp đồng.</li>
+          <li>Bà con chở hàng đến các khu thu mua hoặc gửi về các bến xe tại Hà Nội, trang trại có đội ngũ giao nhận chuyên nghiệp.</li>
+          <li>Thanh toán luôn trong ngày bằng tiền mặt hoặc chuyển khoản.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== VÌ SAO CHỌN ===== -->
-<section class="why">
+<!-- ============ ĐẦU RA ============ -->
+<section id="dau-ra" class="outlet">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Vì sao chọn chúng tôi</span>
-      <h2>Nuôi bằng tâm, giao bằng nghề</h2>
-      <p>Mỗi con côn trùng đều được nhân giống và chăm sóc tại trại riêng, không thu gom ngoài tự nhiên.</p>
+    <div class="head">
+      <span class="kicker">Đầu ra số lượng lớn · Khởi nghiệp từ 2004</span>
+      <h2>Vì sao trang trại thu mua được lâu dài?</h2>
+      <p>Hiện nay trang trại xuất bán hàng chục tấn côn trùng mỗi tháng và luôn là tổng đại lý cấp 1 trên toàn quốc và xuất khẩu. Thị trường tiêu thụ ổn định nên trang trại mới đảm bảo thu mua sản phẩm lâu dài cho người nuôi.</p>
     </div>
-    <div class="why-list">
-      <div class="why-item"><span class="num">i.</span><div><h3>Tự nhân giống tại trại</h3><p>Kiểm soát nguồn gốc, khoẻ mạnh, không mang mầm bệnh — an toàn cho thú cưng của bạn.</p></div></div>
-      <div class="why-item"><span class="num">ii.</span><div><h3>Đóng gói chuyên dụng</h3><p>Hộp thoáng khí, giá thể giữ ẩm, chống sốc nhiệt — côn trùng đến tay bạn vẫn hoạt bát.</p></div></div>
-      <div class="why-item"><span class="num">iii.</span><div><h3>Bao chết 1 đổi 1</h3><p>Quay video khi mở hộp, nếu có con không sống chúng tôi gửi bù ngay trong đơn kế tiếp.</p></div></div>
-      <div class="why-item"><span class="num">iv.</span><div><h3>Hướng dẫn nuôi trọn đời</h3><p>Tặng cẩm nang nuôi theo loài và hỗ trợ qua Zalo bất cứ khi nào bạn cần.</p></div></div>
+    <div class="gallery">
+      <figure class="wide"><img src="images/kho-dong-lanh.jpg" alt="Kho dế mèn cấp đông" width="600" height="400" loading="lazy"><figcaption>Kho đông lạnh với hàng chục tủ đá công nghiệp chứa vài tấn dế mèn</figcaption></figure>
+      <figure><img src="images/khu-dong-goi.jpg" alt="Khu đóng gói dế mèn, tắc kè, bọ cạp" width="600" height="593" loading="lazy"><figcaption>Khu sơ chế, đóng gói dế mèn, tắc kè, bọ cạp</figcaption></figure>
+      <figure><img src="images/khu-thu-mua.jpg" alt="Khu thu mua dế mèn thương phẩm" width="600" height="449" loading="lazy"><figcaption>Khu thu mua thương phẩm đầu ra</figcaption></figure>
+      <figure><img src="images/nha-hang.jpg" alt="Nhà hàng đặc sản côn trùng Thanh Xuân" width="600" height="400" loading="lazy"><figcaption>Món ăn tại hàng trăm nhà hàng từ dế mèn, tắc kè, bọ cạp</figcaption></figure>
+      <figure><img src="images/dan-choi-chim.jpg" alt="Dân chơi chim cảnh" width="400" height="300" loading="lazy"><figcaption>Đầu ra dế mèn sống cho dân chơi chim</figcaption></figure>
+      <figure><img src="images/sieu-thi.jpg" alt="Hệ thống siêu thị" width="268" height="188" loading="lazy"><figcaption>Đầu ra tại hệ thống các siêu thị trên cả nước</figcaption></figure>
+      <figure><img src="images/khach-nuoc-ngoai.jpg" alt="Khách nước ngoài tại trang trại" width="640" height="360" loading="lazy"><figcaption>Khách nước ngoài đến mua giống và thương phẩm</figcaption></figure>
+      <figure class="wide"><img src="images/de-sach-thanh-xuan.jpg" alt="Sản phẩm Dế mèn sạch Thanh Xuân đóng hộp" width="600" height="337" loading="lazy"><figcaption>Thương hiệu cấp phép "Dế mèn sạch Thanh Xuân", được nhà nước cấp phép để đưa vào các hệ thống siêu thị</figcaption></figure>
+      <figure class="wide"><img src="images/giao-hang.jpg" alt="Thùng hàng chuẩn bị giao đi các tỉnh" width="1200" height="676" loading="lazy"><figcaption>Phân phối tắc kè, dế mèn, bọ cạp, sâu, rết, trứng kiến cho các đại lý, nhà hàng ở các tỉnh</figcaption></figure>
+    </div>
+
+    <div class="channels">
+      <div>
+        <h3>Trang trại phân phối cho</h3>
+        <ul>
+          <li>Đại lý ngành thực phẩm, nhà hàng, quán nhậu, khách sạn, siêu thị, chợ ẩm thực trong và ngoài nước, nhà thuốc.</li>
+          <li>Công ty thức ăn chăn nuôi: dế mèn thương phẩm số lượng lớn để chế biến cám gia súc, gia cầm, thủy hải sản, sinh vật cảnh.</li>
+          <li>Chợ sinh vật cảnh, đại lý bán dế chim, cá cảnh: bán buôn dế sống.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Đã xuất khẩu sang</h3>
+        <div class="chips">
+          <span class="chip">Lào</span><span class="chip">Campuchia</span><span class="chip">Thái Lan</span><span class="chip">Myanmar</span><span class="chip">Ai Cập</span>
+          <span class="chip">Trung Quốc</span><span class="chip">Nga</span><span class="chip">Hàn Quốc</span><span class="chip">Pháp</span>
+        </div>
+        <p class="note">Thương phẩm, con giống, khay trứng dế của hệ thống trang trại côn trùng Thanh Xuân đã xuất số lượng lớn ra nước ngoài, cả hàng sấy khô và đông lạnh.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== QUY TRÌNH ===== -->
-<section id="quy-trinh" class="steps-sec">
+<!-- ============ MUA HÀNG ============ -->
+<section id="mua-hang">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Đặt hàng dễ dàng</span>
-      <h2>Từ trại đến tay bạn trong 4 bước</h2>
-      <p>Không cần tài khoản, không cần giỏ hàng — chỉ một tin nhắn.</p>
+    <div class="head">
+      <span class="kicker">Hướng dẫn mua hàng</span>
+      <h2>Mua giống ở xa vẫn nhận hàng an toàn</h2>
+      <p>Bà con đến trực tiếp trang trại để mua, hoặc đặt hàng qua điện thoại và chuyển khoản. Hàng đến tay bà con đảm bảo an toàn, đủ số lượng.</p>
     </div>
     <div class="steps">
-      <div class="step"><h3>Nhắn tin chọn loài</h3><p>Gửi tên sản phẩm qua Zalo hoặc Facebook, nhân viên tư vấn ngay.</p></div>
-      <div class="step"><h3>Xác nhận &amp; báo giá</h3><p>Báo giá theo số lượng, phí ship và thời gian nhận hàng.</p></div>
-      <div class="step"><h3>Đóng gói trong ngày</h3><p>Chọn cá thể khoẻ nhất, đóng hộp chuyên dụng, gửi video trước khi giao.</p></div>
-      <div class="step"><h3>Nhận hàng &amp; nuôi</h3><p>Kiểm tra hàng, thanh toán khi nhận, kèm cẩm nang nuôi.</p></div>
+      <div class="step"><span class="n">1</span><h3>Gọi điện đặt hàng</h3><p>Gọi hotline để được tư vấn gói giống, số lượng và ký hợp đồng bao tiêu.</p></div>
+      <div class="step"><span class="n">2</span><h3>Chuyển khoản</h3><p>Chuyển khoản vào một trong hai tài khoản bên dưới của trang trại.</p></div>
+      <div class="step"><span class="n">3</span><h3>Nhận hàng</h3><p>Nhận con giống, khay trứng dế tại bến xe, ga tàu gần nhất hoặc điểm trên quốc lộ có xe khách chạy qua. Khay trứng dế có thể chuyển phát nhanh qua bưu điện về tận nhà.</p></div>
+      <div class="step"><span class="n">4</span><h3>Theo dõi chuyến xe</h3><p>Trang trại thông báo thời gian gửi và nhận hàng, biển số xe và số điện thoại của xe.</p></div>
     </div>
+    <div class="banks">
+      <div class="bank">
+        <small>Agribank · Chi nhánh Hà Nội</small>
+        <div class="acc num">1500205375877</div>
+        <div class="owner">Trần Thị Thanh Xuân</div>
+      </div>
+      <div class="bank">
+        <small>Vietcombank · Chi nhánh Hà Nội</small>
+        <div class="acc num">0541000170707</div>
+        <div class="owner">Nguyễn Thành Phi</div>
+      </div>
+    </div>
+    <p class="bank-warn">Bà con vui lòng gọi hotline xác nhận đơn hàng trước khi chuyển khoản.</p>
   </div>
 </section>
 
-<!-- ===== ĐÁNH GIÁ ===== -->
-<section>
+<!-- ============ VIDEO & TIN TỨC ============ -->
+<section id="video" class="media">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Khách hàng nói gì</span>
-      <h2>Được tin chọn bởi người yêu côn trùng</h2>
+    <div class="head">
+      <span class="kicker">Video &amp; báo chí</span>
+      <h2>VTV2 phát sóng hàng năm từ 2009 đến nay</h2>
+      <p>Trên 4000 video về chăn nuôi, thu mua và xuất bán đầu ra tại các kênh YouTube của trang trại.</p>
     </div>
-    <div class="reviews">
-      <div class="review"><div class="stars">★★★★★</div>
-        <blockquote>“Bọ kẹp kìm về rất khoẻ, hộp đóng cẩn thận. Shop còn chỉ cách làm giá thể cho bé nữa.”</blockquote>
-        <div class="who"><div class="avatar">M</div><div><b>Minh Anh</b><br>Hà Nội</div></div></div>
-      <div class="review"><div class="stars">★★★★★</div>
-        <blockquote>“Lấy sâu canxi sỉ hàng tuần cho trại rồng Nam Mỹ, chất lượng đều, giao đúng hẹn.”</blockquote>
-        <div class="who"><div class="avatar">T</div><div><b>Tuấn Reptile</b><br>TP. Hồ Chí Minh</div></div></div>
-      <div class="review"><div class="stars">★★★★★</div>
-        <blockquote>“Mua kit cho con trai 8 tuổi, giờ ngày nào bé cũng ngồi quan sát và ghi chép. Rất đáng tiền!”</blockquote>
-        <div class="who"><div class="avatar">H</div><div><b>Chị Hà</b><br>Đà Nẵng</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== HỎI ĐÁP ===== -->
-<section id="hoi-dap" class="faq" style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Hỏi đáp</span>
-      <h2>Câu hỏi thường gặp</h2>
-    </div>
-    <details open><summary>Côn trùng có chết khi vận chuyển xa không?</summary>
-      <p>Tỉ lệ sống khi nhận của chúng tôi trên 98%. Hàng được đóng trong hộp thoáng khí có giá thể giữ ẩm. Nếu có con không sống, bạn quay video lúc mở hộp để được gửi bù.</p></details>
-    <details><summary>Người mới nên nuôi loài nào?</summary>
-      <p>Bọ kẹp kìm và bọ hung là lựa chọn dễ nhất: ít tốn công, chỉ cần thạch dinh dưỡng và mùn gỗ, sống được nhiều tháng.</p></details>
-    <details><summary>Có bán sỉ thức ăn sống cho trại không?</summary>
-      <p>Có. Sâu gạo, sâu canxi, dế và gián Dubia có giá sỉ theo kg, giao định kỳ hàng tuần. Nhắn Zalo để nhận bảng giá sỉ.</p></details>
-    <details><summary>Thanh toán thế nào?</summary>
-      <p>Chuyển khoản hoặc thanh toán khi nhận hàng (COD) trên toàn quốc.</p></details>
-  </div>
-</section>
-
-<!-- ===== CTA / LIÊN HỆ ===== -->
-<div id="lien-he" class="cta">
-  <div class="wrap">
-    <div class="cta-box">
+    <div class="media-grid">
       <div>
-        <h2>Sẵn sàng đón “thú cưng tí hon” về nhà?</h2>
-        <p>Nhắn tin để được tư vấn chọn loài phù hợp và nhận ưu đãi 10% cho đơn đầu tiên.</p>
+        <a class="tv" href="https://www.youtube.com/results?search_query=Trang+tr%E1%BA%A1i+Thanh+Xu%C3%A2n" target="_blank" rel="noopener">
+          <img src="images/vtv2.jpg" alt="Chương trình Bạn của nhà nông trên VTV2" width="1200" height="594" loading="lazy">
+          <span class="play"><svg><use href="#i-play"/></svg>Xem video trên YouTube</span>
+        </a>
+        <div class="yt">
+          <a class="btn btn-line" href="http://trangtraithanhxuan.com/videos/2766/0/0/video-chan-nuoi.aspx">Video chăn nuôi</a>
+          <a class="btn btn-line" href="http://trangtraithanhxuan.com/videos/247/0/0/video-cac-dai-truyen-hinh.aspx">Video các đài truyền hình</a>
+        </div>
       </div>
-      <div class="contact">
-        <a href="https://zalo.me/0900000000">Zalo: 0900 000 000 <span>→</span></a>
-        <a href="https://facebook.com/">Facebook Messenger <span>→</span></a>
-        <a href="tel:0900000000">Gọi ngay <span>→</span></a>
+      <div>
+        <h3>Tin tức</h3>
+        <ul class="list">
+          <li><a href="http://trangtraithanhxuan.com/khach-nuoc-ngoai---phan-ii_dn955.aspx"><span>Khách nước ngoài sang trang trại mua giống và thương phẩm</span><span>→</span></a></li>
+          <li><a href="http://trangtraithanhxuan.com/cac-buoc-chuan-bi-truoc-khi-nuoi-de---tac-ke---bo-cap_dn1457.aspx"><span>Các bước chuẩn bị trước khi nuôi dế, tắc kè, bọ cạp</span><span>→</span></a></li>
+          <li><a href="http://trangtraithanhxuan.com/roll-royce-lexus-camry-san-hang-doc-tai-trang-trai-thanh-xuan_dn1337.aspx"><span>Roll Royce, Lexus, Camry săn hàng độc tại trang trại</span><span>→</span></a></li>
+          <li><a href="http://trangtraithanhxuan.com/cac-nha-hang-con-trung-tai-viet-nam-va-nuoc-ngoai_dn996.aspx"><span>Các nhà hàng côn trùng tại Việt Nam và nước ngoài</span><span>→</span></a></li>
+          <li><a href="http://trangtraithanhxuan.com/cac-giao-su-cac-nha-khoa-hoc-den-tham-trang-trai-thanh-xuan_dn1006.aspx"><span>Các giáo sư, nhà khoa học đến thăm trang trại</span><span>→</span></a></li>
+          <li><a href="http://trangtraithanhxuan.com/trang-trai-tham-gia-trien-lam-nong-nghiep-quoc-te--nam-2014---lan-thu-14_dn1417.aspx"><span>Trang trại tham gia Triển lãm nông nghiệp quốc tế</span><span>→</span></a></li>
+          <li><a href="http://trangtraithanhxuan.com/con-trung-co-the-la-mot-giai-phap-doi-voi-van-de-suc-khoe_dn951.aspx"><span>Côn trùng có thể là giải pháp cho vấn đề sức khỏe</span><span>→</span></a></li>
+          <li><a href="http://trangtraithanhxuan.com/lien-hop-quoc-khuyen-cao-an-con-trung_dn952.aspx"><span>Liên Hợp Quốc khuyến cáo ăn côn trùng</span><span>→</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="license">
+      <b>Trang trại được cấp đầy đủ giấy phép</b>
+      <ul>
+        <li>Giấy phép chăn nuôi</li>
+        <li>Chứng nhận vệ sinh an toàn thực phẩm</li>
+        <li>Giấy phép kinh doanh</li>
+        <li>Hóa đơn thuế</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIÊN HỆ ============ -->
+<section id="lien-he" class="contact">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker">Liên hệ đặt giống &amp; bán thương phẩm</span>
+      <h2>Gọi ngay để được tư vấn gói phù hợp</h2>
+      <p>Trang trại sẽ lưu thông tin và số điện thoại của bà con để giao dịch. Chúc bà con chăn nuôi thành công!</p>
+    </div>
+    <div class="sites">
+      <div class="site">
+        <h3>Cơ sở 1 · Hà Nội</h3>
+        <address>119 Tam Trinh, Mai Động, Hoàng Mai, Hà Nội</address>
+        <div class="phones">
+          <a href="tel:0974870000"><span>Mrs. Xuân</span><b class="num">097 487 0000</b></a>
+          <a href="tel:0389958888"><span>Mr. Phi</span><b class="num">038 995 8888</b></a>
+        </div>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=119%20Tam%20Trinh%2C%20Mai%20%C4%90%E1%BB%99ng%2C%20Ho%C3%A0ng%20Mai%2C%20H%C3%A0%20N%E1%BB%99i" target="_blank" rel="noopener">Xem đường đi trên Google Maps →</a>
+      </div>
+      <div class="site">
+        <h3>Cơ sở 2 · Nam Định</h3>
+        <address>Thôn Hóp, xã Mỹ Phúc, huyện Mỹ Lộc, Nam Định<br>Liên hệ: Bác Mạc</address>
+        <div class="phones">
+          <a href="tel:0945370300"><span>Điện thoại Nam Định</span><b class="num">0945 370 300</b></a>
+          <a href="tel:0974870000"><span>Hotline chung</span><b class="num">097 487 0000</b></a>
+        </div>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ch%C3%B9a%20H%C3%B3p%2C%20M%E1%BB%B9%20Ph%C3%BAc%2C%20M%E1%BB%B9%20L%E1%BB%99c%2C%20Nam%20%C4%90%E1%BB%8Bnh" target="_blank" rel="noopener">Xem đường đi trên Google Maps →</a>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Côn Trùng Xanh · 123 Đường ABC, Quận XYZ</span>
-    <span>Mở cửa 8:00 – 21:00 mỗi ngày</span>
+    <span>© Bản quyền thuộc về trang trại Thanh Xuân · Khởi nghiệp chăn nuôi côn trùng từ 2004</span>
+    <span>trangtraithanhxuan.com</span>
   </div>
 </footer>
+
+<nav class="callbar" aria-label="Gọi nhanh">
+  <a href="tel:0974870000"><span>Gọi Mrs. Xuân</span><b class="num">097 487 0000</b></a>
+  <a href="tel:0389958888"><span>Gọi Mr. Phi</span><b class="num">038 995 8888</b></a>
+</nav>
 
 </body>
 </html>
