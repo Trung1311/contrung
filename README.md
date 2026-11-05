@@ -1,8 +1,22 @@
-# Trang trại Thanh Xuân — website mới
+# Trang trại Thanh Xuân — website
 
-Thiết kế lại trang chủ trangtraithanhxuan.com, giữ nguyên nội dung cũ (sản phẩm, bảng giá, gói bao tiêu, hướng dẫn mua hàng, liên hệ).
+Website giới thiệu trang trại Thanh Xuân (dế mèn, tắc kè, bọ cạp), thiết kế ưu tiên cho điện thoại.
 
-- `index.html`: toàn bộ trang (HTML + CSS thuần, không cần cài đặt gì).
-- `images/`: ảnh lấy từ website cũ, đã nén lại cho nhẹ.
+Xem trực tuyến: https://trung1311.github.io/contrung/
 
-Mở `index.html` bằng trình duyệt để xem. Có thể đăng miễn phí bằng GitHub Pages.
+## Các trang
+| File | Nội dung |
+|---|---|
+| `index.html` | Trang chủ |
+| `de-men.html` | Dế mèn: giá, vòng đời, kỹ thuật nuôi, thu hoạch |
+| `tac-ke.html` | Tắc kè: giá, đặc điểm, làm chuồng, kỹ thuật |
+| `bo-cap.html` | Bọ cạp: giá, hồ nuôi, thức ăn, thu hoạch |
+| `bang-gia.html` | Bảng giá, 8 gói bao tiêu, điều khoản, cam kết |
+| `dau-ra.html` | Đầu ra, thu mua, xuất khẩu |
+| `mua-hang.html` | Đặt hàng, thanh toán, chuẩn bị nuôi |
+| `tin-tuc.html` | Video YouTube, tin tức, giấy phép |
+| `lien-he.html` | Địa chỉ, điện thoại |
+
+## Sửa nội dung
+Nội dung từng trang nằm trong `_build/pages/`. Phần đầu trang, menu, chân trang nằm trong `_build/build.py`.
+Sửa xong chạy `python3 _build/build.py` để tạo lại các file `.html`. Giao diện chung ở `css/style.css`.
