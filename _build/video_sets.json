@@ -1,0 +1,139 @@
+{
+  "_ghi_chu": "Các nhóm video chèn vào từng trang. Mỗi video: [mã YouTube, tiêu đề hiển thị, dòng phụ]. Sửa xong chạy python3 _build/build.py",
+  "features": {
+    "vtv2-2017": ["zB64PBjVq0Q", "Trang trại Thanh Xuân nuôi dế, tắc kè", "VTV2 phát sóng ngày 17/04/2017"],
+    "de-vtv2-thung-xop": ["0U38qB2TzHU", "Kỹ thuật nuôi dế bằng thùng xốp", "VTV2 phát sóng"],
+    "tacke-vtv2-2013": ["YlTkHNF4V3k", "Kỹ thuật nuôi tắc kè sinh sản", "VTV2 phát sóng năm 2013"],
+    "bocap-ho-nuoi": ["evkKsYVmcE4", "Cách làm hồ nuôi bọ cạp theo phương pháp bán tự nhiên", "Video tại trang trại · 2018"],
+    "trai-de": ["JyzfDMmZ2vw", "Trại dế Thanh Xuân", "Xem trang trại trước khi đến · 2018"],
+    "tv-ban-nha-nong": ["b_jLhshLmB4", "Trang trại Thanh Xuân nuôi tắc kè, dế mèn", "VTV2 · chương trình Bạn nhà nông · 2017"]
+  },
+  "rails": {
+    "trang-chu": {
+      "title": "Xem trang trại qua video",
+      "items": [
+        ["zB64PBjVq0Q", "Trang trại Thanh Xuân nuôi dế, tắc kè", "VTV2 · 2017"],
+        ["JyzfDMmZ2vw", "Trại dế Thanh Xuân", "Tại trang trại · 2018"],
+        ["wZr1whVdNOY", "Trung tâm thu mua dế thịt giá ổn định", "Thu mua · 2018"],
+        ["Er-MHGBkHGY", "Hệ thống tủ đá đựng sản phẩm của trang trại", "Kho đông lạnh · 2017"],
+        ["nu6XNTBjMKA", "Thu hoạch bọ cạp thương phẩm", "Bọ cạp · 2018"],
+        ["eefG6wGSGoY", "Xuất bán dế mèn thịt cho hệ thống siêu thị BigC", "Đầu ra · 2018"],
+        ["akZ_HU1Z_94", "Xuất khẩu dế thịt, dế trứng, bọ cạp qua cửa khẩu Lạng Sơn", "Xuất khẩu · 2018"]
+      ]
+    },
+    "de-trung": {
+      "title": "Từ trứng đến dế con",
+      "items": [
+        ["Ja-BWWMMoLk", "Trứng dế phát triển như nào qua các ngày tuổi", "2018"],
+        ["aeNCkRW6mm0", "Dế bắt đầu nở, tự chui ra khỏi vỏ trứng", "2017"],
+        ["GYKDrOfqfbY", "Dế con nở sau vài tiếng", "VTV2 phát sóng"],
+        ["rv1vE-g8OyQ", "Khay trứng dế nở được bao nhiêu kg?", "2017"]
+      ]
+    },
+    "de-ky-thuat": {
+      "title": "Video kỹ thuật nuôi dế",
+      "items": [
+        ["ZkQclzkOByI", "Cách nuôi dế lúc còn nhỏ bằng thùng xốp", "2018"],
+        ["x338XfiWxwQ", "Cách dán thùng xốp nuôi dế", "2017"],
+        ["nqtTZjXru0M", "Cách làm thùng bìa nuôi dế thương phẩm", "2017"],
+        ["OptDse56OL8", "Cách đóng thùng gỗ nuôi dế", "2018"],
+        ["A8dJQnqX5Zg", "Hướng dẫn kỹ thuật nuôi dế tại miền Bắc", "2017"],
+        ["Oj6ZKsRFkCA", "Cách phòng bệnh cho dế mèn", "2014"],
+        ["e_KTRtW6Bbs", "Kỹ thuật nuôi dế", "VTV2 · Bạn nhà nông · 2016"]
+      ]
+    },
+    "de-thu-hoach": {
+      "title": "Video thu hoạch & bán dế",
+      "items": [
+        ["1COk7SjDHFM", "Cách thu hoạch dế thịt", "2016"],
+        ["YfhN1IxyYKM", "Dế 28 ngày tuổi nhịn ăn để thu hoạch làm dế đông lạnh", "2017"],
+        ["NI9fQNszPjM", "Thu mua dế đông lạnh qua xe khách", "2017"],
+        ["WEQjJBcGOow", "Khách hàng bán dế thịt cho trang trại", "2018"]
+      ]
+    },
+    "tacke-ky-thuat": {
+      "title": "Video kỹ thuật nuôi tắc kè",
+      "items": [
+        ["ljGArRfvtp4", "Xây dựng chuồng trại nuôi tắc kè", "Làm chuồng"],
+        ["cT4IKfQ_T7k", "Cách làm chuồng nuôi tắc kè", "Làm chuồng"],
+        ["JhtXBcXWFIk", "Cách làm chuồng trứng tắc kè", "2017"],
+        ["6SMcdDbie2Y", "Cách ấp trứng tắc kè", "2017"],
+        ["Y3X-M1bRQIY", "Cách nuôi tắc kè con mới nở", "2017"],
+        ["KPAXfbWTguI", "Tắc kè con 1 tháng tuổi", "2017"],
+        ["XqP1QScAfQ8", "Tắc kè mùa sinh sản đang mang bầu", "Sinh sản"],
+        ["9MGah9jBgRM", "Kỹ thuật nuôi tắc kè", "VTV2 · Bạn nhà nông · 2016"]
+      ]
+    },
+    "tacke-dau-ra": {
+      "title": "Video tắc kè thương phẩm",
+      "items": [
+        ["v-9IcIwmgvc", "Tắc kè Bắc giống, đẻ sai quanh năm", "2017"],
+        ["5qrHcWLBI4A", "Khách hàng bán tắc kè thương phẩm cho trang trại", "Thu mua"],
+        ["CTTIx02pyfo", "Xuất bán tắc kè thương phẩm ngâm rượu", "Đầu ra"],
+        ["grWwkQ4PKB0", "Món ăn từ tắc kè", "Nhà hàng · 2015"]
+      ]
+    },
+    "bocap": {
+      "title": "Video nuôi bọ cạp",
+      "items": [
+        ["UXfQitu1E88", "Kỹ thuật nuôi bọ cạp đẻ", "2017"],
+        ["5Wo6tTfK6eg", "Mùa bọ cạp đẻ con: 25 đến 30 con một lứa", "Sinh sản"],
+        ["R-MzRKTEJKc", "Kỹ thuật nuôi bọ cạp thả vườn", "2013"],
+        ["nu6XNTBjMKA", "Thu hoạch bọ cạp thương phẩm", "2018"],
+        ["24DKCg8W_1g", "Kỹ thuật nuôi tắc kè, bọ cạp – phần I", "VTV2 phát sóng năm 2010"],
+        ["pmO9rN3qNb0", "Kỹ thuật nuôi tắc kè, bọ cạp – phần II", "VTV2 phát sóng năm 2010"],
+        ["wb1kUH5T_NU", "Giá bán bọ cạp cho nhà hàng", "Đầu ra · 2018"]
+      ]
+    },
+    "bang-gia": {
+      "title": "Video về giống & bao tiêu",
+      "note": "Giá nói trong video là giá tại thời điểm quay. Giá hiện tại xem bảng giá ở trên.",
+      "items": [
+        ["rv1vE-g8OyQ", "Khay trứng dế nở được bao nhiêu kg?", "2017"],
+        ["H43oFaho-Q8", "Trang trại cấp giống và bao tiêu thương phẩm hàng tháng", "2018"],
+        ["4GOZBFsQ4h8", "Bao tiêu thu mua sản phẩm cho người chăn nuôi dế mèn", "2017"],
+        ["NjI3TCuYLJY", "Nơi bán dế giống có bao tiêu thu mua đầu ra", "2017"],
+        ["g3wnyoqJZwU", "Giá thu mua dế hiện nay bao nhiêu", "2018"]
+      ]
+    },
+    "dau-ra": {
+      "title": "Video đầu ra & thu mua",
+      "items": [
+        ["wZr1whVdNOY", "Trung tâm thu mua dế thịt giá ổn định", "Thu mua · 2018"],
+        ["Er-MHGBkHGY", "Hệ thống tủ đá đựng sản phẩm của trang trại", "Kho · 2017"],
+        ["eefG6wGSGoY", "Xuất bán dế mèn thịt cho hệ thống siêu thị BigC", "Siêu thị · 2018"],
+        ["xRzhxUvd52c", "Nhà hàng bán dế mèn ở Hà Nội, Sài Gòn", "Nhà hàng · 2015"],
+        ["ylJIq1BwCsY", "Chuyên cung cấp dế chim, bán buôn toàn quốc", "Chim cảnh · 2017"],
+        ["akZ_HU1Z_94", "Xuất khẩu dế, bọ cạp qua cửa khẩu Lạng Sơn", "Xuất khẩu · 2018"],
+        ["KuuqMZ7nkQE", "Tắc kè, bọ cạp, dế mèn, trứng kiến đi Lào bằng ô tô", "Xuất khẩu · 2018"],
+        ["HNop8M377y8", "Xuất bán tắc kè cho khách nước ngoài", "Xuất khẩu · 2017"]
+      ]
+    },
+    "mua-hang": {
+      "title": "Khách mua hàng tại trang trại",
+      "items": [
+        ["uFLOEJFvGXI", "Khách mua trứng dế Thái về nuôi", "2018"],
+        ["hqDYBTIJwPA", "Ngày nghỉ lễ khách vẫn chuyển khoản mua trứng dế giống", "2018"],
+        ["97AKF2I1w4A", "Xuất trứng dế cho khách", "Gửi hàng"],
+        ["DrI8Aa3ruis", "Giao tắc kè cho trại tắc kè Hải Dương", "Gửi hàng · 2018"],
+        ["NI9fQNszPjM", "Thu mua dế đông lạnh qua xe khách", "Bán thương phẩm · 2017"],
+        ["WEQjJBcGOow", "Khách hàng bán dế thịt cho trang trại", "Bán thương phẩm · 2018"]
+      ]
+    },
+    "truyen-hinh": {
+      "title": "Truyền hình & báo chí đưa tin",
+      "items": [
+        ["zB64PBjVq0Q", "Trang trại Thanh Xuân nuôi dế, tắc kè", "VTV2 · 2017"],
+        ["YlTkHNF4V3k", "Kỹ thuật nuôi tắc kè sinh sản", "VTV2 · 2013"],
+        ["96Ro_UD0IYk", "Phóng sự nuôi dế, tắc kè tại trang trại Thanh Xuân", "VTV2"],
+        ["BEm7anp40Js", "Cơ sở nuôi dế, tắc kè – phần II", "VTV2 · Bạn nhà nông · 2015"],
+        ["-dZLsQwpxhs", "Trại tắc kè Thanh Xuân", "VTC16 phát sóng"],
+        ["tmtcdHQk4GU", "Trại dế Thanh Xuân", "VTC10 phát sóng năm 2013"],
+        ["9H2EJs8nPT4", "Kỹ thuật nuôi tắc kè, kỹ thuật nuôi dế", "Đài Hà Nội 1 · 2010"],
+        ["bWUdTOMedx4", "Báo Dân Trí đưa tin trên trang chủ", "Dân Trí · 2014"],
+        ["6hlPWysB4Ew", "Trang trại Thanh Xuân trên báo Lao Động", "Lao Động · 2016"],
+        ["3ea3dBqrrFc", "Đài truyền hình nước ngoài làm phim về ẩm thực Việt Nam", "Truyền hình nước ngoài"]
+      ]
+    }
+  }
+}

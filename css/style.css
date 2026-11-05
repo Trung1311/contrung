@@ -43,6 +43,7 @@ p + p{margin-top:.75em}
 .kicker{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-2)}
 .muted{color:var(--muted)}
 .small{font-size:.9rem}
+[hidden]{display:none!important}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 /* ---------- Khối & khoảng cách ---------- */
@@ -404,4 +405,128 @@ a.card .link{margin-top:2px}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .btn,.acc summary::after{transition:none}
+}
+
+/* ================= Video =================
+   Ảnh bìa nhỏ + nút phát. Bấm vào mới tải YouTube (trang nhẹ trên điện thoại).
+   Trên điện thoại: dải video vuốt ngang, video mở dạng khung trượt lên từ đáy. */
+.vblock{margin-top:32px}
+.vblock:first-child{margin-top:0}
+.vhead{display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin-bottom:12px}
+.vhead h3{display:flex;align-items:center;gap:8px;font-size:1.35rem}
+.vhead h3 svg{width:26px;height:26px;color:#d93025;flex:none;transform:translateY(-1px)}
+.vhint{font-size:.8rem;color:var(--muted);white-space:nowrap;padding-left:34px}
+.vnote{font-size:.85rem;color:var(--muted);margin:-4px 0 12px}
+.vrail{display:grid;grid-auto-flow:column;grid-auto-columns:76%;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;
+       scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px;
+       margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+       padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+       scroll-padding-left:max(16px,env(safe-area-inset-left,0px))}
+.vrail::-webkit-scrollbar{display:none}
+.vcard{scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;min-width:0}
+.vthumb{position:relative;display:block;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:#0b2f1d}
+.vthumb img{width:100%;height:100%;object-fit:cover}
+.vplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;
+       background:rgba(14,59,37,.85);color:#fff;border:2px solid rgba(255,255,255,.9);display:grid;place-items:center;
+       box-shadow:0 6px 18px rgba(0,0,0,.35);transition:transform .15s ease}
+.vplay svg{width:24px;height:24px;margin-left:3px}
+.vtitle{font-weight:700;font-size:.95rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vmeta{font-size:.8rem;color:var(--muted);line-height:1.35}
+.vcard .vmeta{margin-top:-4px}
+
+.vfeature{display:block;text-decoration:none;color:inherit;border-radius:var(--r);overflow:hidden;background:var(--surface);border:1px solid var(--line);margin-bottom:18px}
+.vfeature .vthumb{border-radius:0}
+.vfeature .vplay{width:68px;height:68px;background:var(--straw);color:var(--straw-ink);border-color:#fff}
+.vfeature .vplay svg{width:30px;height:30px}
+.vcap{display:grid;gap:4px;padding:12px 16px 16px}
+.vcap b{font-weight:700;font-size:1.02rem;line-height:1.4}
+.vcap span{font-size:.84rem;color:var(--muted);line-height:1.35}
+.vcap span::before{content:"▶ ";color:#d93025}
+
+.hero-video{display:inline-flex;align-items:center;gap:10px;margin-top:16px;color:var(--on-green);font-weight:700;text-decoration:none;min-height:44px}
+.hero-video i{width:36px;height:36px;border-radius:50%;background:#d93025;display:grid;place-items:center;flex:none}
+.hero-video svg{width:18px;height:18px;color:#fff;margin-left:2px}
+.hero-video span{border-bottom:1px solid rgba(241,245,238,.4);line-height:1.35}
+
+/* Thư viện video */
+.vlib-form input{width:100%;min-height:52px;border-radius:999px;border:1px solid var(--line);background:var(--surface);
+  padding:0 18px 0 48px;font:inherit;font-size:16px;color:var(--ink);-webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356635a' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:16px center;background-size:20px}
+.vlib-form input:focus{outline:3px solid var(--straw);outline-offset:1px;border-color:var(--green-2)}
+.vlib-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-block:12px;
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.vlib-chips::-webkit-scrollbar{display:none}
+.chipbtn{flex:none;min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);
+  font:inherit;font-weight:600;font-size:.88rem;color:var(--ink);cursor:pointer}
+.chipbtn[aria-pressed="true"]{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.vlib-count{font-size:.85rem;color:var(--muted);margin-bottom:12px}
+.vlist{list-style:none;display:grid;gap:14px;margin-bottom:18px}
+.vrow{display:grid;grid-template-columns:44% 1fr;gap:12px;align-items:start;text-decoration:none;color:inherit}
+.vrow .vplay{width:36px;height:36px;border-width:1.5px}
+.vrow .vplay svg{width:16px;height:16px;margin-left:2px}
+.vtext{display:grid;gap:4px;min-width:0}
+.vrow .vtitle{-webkit-line-clamp:3}
+.channels{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.channels a{display:flex;align-items:center;gap:10px;min-height:56px;padding:10px 12px;border-radius:12px;background:var(--surface);
+  border:1px solid var(--line);text-decoration:none;font-weight:700;font-size:.9rem;line-height:1.3}
+.channels svg{width:26px;height:26px;color:#d93025;flex:none}
+
+/* Khung phát video */
+.vplayer{position:fixed;inset:auto 0 0 0;margin:0;padding:0 0 env(safe-area-inset-bottom,0px);border:0;width:100%;max-width:100%;
+  max-height:100%;background:var(--green);color:var(--on-green);border-radius:18px 18px 0 0;overflow:hidden}
+.vplayer::backdrop{background:rgba(5,20,12,.8)}
+.vplayer[open]{animation:vp-up .22s ease-out}
+@keyframes vp-up{from{transform:translateY(48px);opacity:.3}to{transform:none;opacity:1}}
+.vp-frame{aspect-ratio:16/9;background:#000}
+.vp-frame iframe{display:block;width:100%;height:100%;border:0}
+.vp-bar{padding:14px 16px 16px;display:grid;gap:12px}
+.vp-title{font-weight:700;line-height:1.4}
+.vp-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vp-actions a,.vp-actions button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:999px;
+  font:inherit;font-weight:700;font-size:.95rem;text-decoration:none;cursor:pointer;border:0}
+.vp-actions svg{width:20px;height:20px;flex:none}
+.vp-yt{background:rgba(241,245,238,.12);color:var(--on-green)}
+.vp-yt svg{color:#ff4e45}
+.vp-close{background:var(--straw);color:var(--straw-ink)}
+html.vp-open{overflow:hidden}
+@media (orientation:landscape) and (max-height:520px){
+  .vplayer{inset:0;height:100%;border-radius:0;display:none}
+  .vplayer[open]{display:grid;grid-template-columns:1fr auto}
+  .vp-frame{aspect-ratio:auto;height:100%}
+  .vp-bar{align-content:end;width:150px}
+  .vp-title{display:none}
+  .vp-actions{grid-template-columns:1fr}
+}
+
+@media (min-width:700px){
+  .vrail{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible;margin:0;padding:0;gap:18px}
+  .vswipe{display:none}
+  .vhint{padding-left:0}
+  .vhead{flex-direction:row;align-items:baseline;justify-content:space-between;gap:12px}
+  .vfeature{display:grid;grid-template-columns:1.5fr 1fr;align-items:center}
+  .vcap{padding:22px}
+  .vcap b{font-size:1.25rem}
+  .vlist{grid-template-columns:repeat(3,1fr);gap:20px}
+  .vrow{grid-template-columns:1fr}
+  .vlib-chips{flex-wrap:wrap;overflow:visible;margin:0;padding-inline:0}
+  .vlib-more{width:auto;min-width:280px;margin:0 auto;display:flex}
+  .channels{grid-template-columns:repeat(3,1fr)}
+  .vplayer{inset:0;margin:auto;width:calc(100% - 48px);max-width:920px;height:fit-content;border-radius:16px;padding-bottom:0}
+  .vp-bar{grid-template-columns:1fr auto;align-items:center}
+  .vp-actions{grid-template-columns:auto auto}
+  .vp-actions a,.vp-actions button{padding:0 18px}
+}
+@media (min-width:1080px){
+  .vrail{grid-template-columns:repeat(4,1fr)}
+  .vlist{grid-template-columns:repeat(4,1fr)}
+}
+@media (hover:hover){
+  .vcard:hover .vplay,.vrow:hover .vplay,.vfeature:hover .vplay{transform:translate(-50%,-50%) scale(1.1)}
+  .vcard:hover .vtitle,.vrow:hover .vtitle{color:var(--green-2)}
+}
+@media (prefers-reduced-motion:reduce){
+  .vplayer[open]{animation:none}
+  .vplay{transition:none}
 }

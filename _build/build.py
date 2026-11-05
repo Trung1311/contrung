@@ -116,11 +116,94 @@ FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="css/style.css">"""
 
 
+# ------------------------------------------------------------------ video
+VSETS = json.load(open(os.path.join(ROOT, "_build", "video_sets.json"), encoding="utf-8"))
+VLIB = json.load(open(os.path.join(ROOT, "_build", "video_library.json"), encoding="utf-8"))
+
+
+def esc(s):
+    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;"))
+
+
+def vlink_attrs(vid, title):
+    return (f'href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener" '
+            f'data-yt="{vid}" data-title="{esc(title)}"')
+
+
+def video_card(vid, title, meta):
+    return (f'<a class="vcard" {vlink_attrs(vid, title)} aria-label="Phát video: {esc(title)}">'
+            f'<span class="vthumb"><img src="https://i.ytimg.com/vi/{vid}/mqdefault.jpg" alt="" loading="lazy" width="320" height="180">'
+            f'<span class="vplay" aria-hidden="true"><svg><use href="#i-play"/></svg></span></span>'
+            f'<span class="vtitle">{esc(title)}</span><span class="vmeta">{esc(meta)}</span></a>')
+
+
+def video_rail(key):
+    r = VSETS["rails"][key]
+    cards = "".join(video_card(*it) for it in r["items"])
+    note = f'<p class="vnote">{esc(r["note"])}</p>' if r.get("note") else ""
+    return (f'<div class="vblock"><div class="vhead"><h3><svg aria-hidden="true"><use href="#i-yt"/></svg>{esc(r["title"])}</h3>'
+            f'<span class="vhint">{len(r["items"])} video<span class="vswipe"> · vuốt ngang</span></span></div>'
+            f'{note}<div class="vrail">{cards}</div></div>')
+
+
+def video_feature(key):
+    vid, title, meta = VSETS["features"][key]
+    return (f'<a class="vfeature" {vlink_attrs(vid, title)} aria-label="Phát video: {esc(title)}">'
+            f'<span class="vthumb"><img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">'
+            f'<span class="vplay" aria-hidden="true"><svg><use href="#i-play"/></svg></span></span>'
+            f'<span class="vcap"><b>{esc(title)}</b><span>{esc(meta)}</span></span></a>')
+
+
+def video_library():
+    chips = [("all", "Tất cả"), ("de", "Dế mèn"), ("tacke", "Tắc kè"), ("bocap", "Bọ cạp"), ("kythuat", "Kỹ thuật nuôi"),
+             ("daura", "Thu mua & đầu ra"), ("tv", "Truyền hình"), ("monan", "Món ăn")]
+    btns = "".join(
+        f'<button type="button" class="chipbtn" data-filter="{k}" aria-pressed="{"true" if k == "all" else "false"}">{label}</button>'
+        for k, label in chips)
+    return f"""<div class="vlib" id="vlib">
+  <form class="vlib-form" role="search">
+    <label class="sr" for="vlib-search">Tìm video</label>
+    <input id="vlib-search" type="search" placeholder="Tìm video, ví dụ: ấp trứng" autocomplete="off" enterkeyhint="search">
+  </form>
+  <div class="vlib-chips" role="group" aria-label="Lọc theo chủ đề">{btns}</div>
+  <p class="vlib-count" aria-live="polite">Đang tải danh sách video…</p>
+  <ul class="vlist"></ul>
+  <button type="button" class="btn btn-green btn-block vlib-more" hidden>Xem thêm</button>
+  <noscript><p class="note">Bật JavaScript để xem thư viện video, hoặc xem trực tiếp trên các kênh YouTube bên dưới.</p></noscript>
+</div>"""
+
+
+PLAYER = """<dialog class="vplayer" id="vplayer" aria-label="Xem video">
+  <div class="vp-frame"></div>
+  <div class="vp-bar">
+    <p class="vp-title"></p>
+    <div class="vp-actions">
+      <a class="vp-yt" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-yt"/></svg>Mở trên YouTube</a>
+      <button type="button" class="vp-close"><svg aria-hidden="true"><use href="#i-close"/></svg>Đóng</button>
+    </div>
+  </div>
+</dialog>"""
+
+
+def expand_videos(body):
+    body = re.sub(r"<!--rail:([\w-]+)-->", lambda m: video_rail(m.group(1)), body)
+    body = re.sub(r"<!--feature:([\w-]+)-->", lambda m: video_feature(m.group(1)), body)
+    body = body.replace("<!--library-->", video_library())
+    return body
+
+
+def write_video_data(out):
+    os.makedirs(os.path.join(out, "js"), exist_ok=True)
+    with open(os.path.join(out, "js", "videos-data.js"), "w", encoding="utf-8") as f:
+        f.write("/* Danh sách video lấy từ website cũ trangtraithanhxuan.com (đã kiểm tra còn xem được). Tạo bởi _build/build.py */\n")
+        f.write("window.VIDEOS=" + json.dumps(VLIB, ensure_ascii=False, separators=(",", ":")) + ";\n")
+
+
 def render(name, preview_index=False):
     raw = open(os.path.join(SRC, name + ".html"), encoding="utf-8").read()
     m = re.match(r"\s*<!--meta (.*?) -->\s*", raw, re.S)
     meta = json.loads(m.group(1))
-    body = raw[m.end():]
+    body = expand_videos(raw[m.end():])
     active = meta.get("tab", name)
     title = SITE if name == "index" else f"{meta['title']} · {SITE}"
     if preview_index:
@@ -132,7 +215,9 @@ def render(name, preview_index=False):
         head_meta += '<meta name="claude:viewport-fit-sides" content="cover">\n'
     page = (head_meta + FONTS + "\n" + ("" if preview_index else "</head>\n<body>\n") +
             ICONS + "\n" + header(active) + "\n<main>\n" + body.strip() + "\n</main>\n" +
-            footer() + "\n" + tabbar(active) + "\n")
+            footer() + "\n" + tabbar(active) + "\n" + PLAYER + "\n" +
+            ('<script src="js/videos-data.js"></script>\n' if "<!--library-->" in raw else "") +
+            '<script src="js/video.js" defer></script>\n')
     if preview_index:
         return page
     return HEAD + page + "</body>\n</html>\n"
@@ -144,6 +229,7 @@ def main():
     if len(sys.argv) > 2 and sys.argv[1] == "--preview":
         out, preview = sys.argv[2], True
         os.makedirs(out, exist_ok=True)
+    write_video_data(ROOT)
     for name, _, _ in PAGES:
         with open(os.path.join(out, href(name)), "w", encoding="utf-8") as f:
             f.write(render(name))
