@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Côn Trùng Xanh — Côn trùng cảnh & thức ăn sống</title>
+<meta name="description" content="Cửa hàng côn trùng cảnh, bọ cánh cứng, bướm và thức ăn sống cho thú cưng. Giao hàng toàn quốc, hướng dẫn nuôi miễn phí.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4efe4;
+    --paper-2:#ebe4d4;
+    --ink:#1d2a22;
+    --ink-soft:#4b5a50;
+    --forest:#1f3d2f;
+    --moss:#5f7d4a;
+    --amber:#c8862f;
+    --amber-dark:#a66a1c;
+    --line:#d6ccb6;
+    --radius:14px;
+    --wrap:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Be Vietnam Pro",system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px;overflow-x:clip;
+  }
+  img,svg{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--moss);font-weight:600}
+  .latin{font-family:"Fraunces",serif;font-style:italic;color:var(--ink-soft)}
+  section{padding:96px 0}
+  .section-head{max-width:640px;margin-bottom:48px}
+  .section-head h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:10px 0 14px}
+  .section-head p{color:var(--ink-soft)}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;
+       font-weight:600;text-decoration:none;transition:transform .15s,background .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--amber);color:#fff}
+  .btn-primary:hover{background:var(--amber-dark)}
+  .btn-ghost{border:1.5px solid currentColor}
+
+  /* Nav */
+  .nav{position:sticky;top:0;z-index:10;background:rgba(244,239,228,.88);backdrop-filter:blur(10px);
+       border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-size:1.3rem;font-weight:600;text-decoration:none}
+  .logo svg{width:30px;height:30px;color:var(--forest)}
+  .nav ul{display:flex;gap:30px;list-style:none;font-size:.95rem}
+  .nav ul a{text-decoration:none;color:var(--ink-soft)}
+  .nav ul a:hover{color:var(--ink)}
+  .nav .btn{padding:10px 20px;font-size:.9rem}
+
+  /* Hero */
+  .hero{padding:72px 0 96px;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.5rem,6vw,4.6rem);margin:16px 0 22px}
+  .hero h1 em{color:var(--moss);font-weight:400}
+  .hero p.lead{font-size:1.12rem;color:var(--ink-soft);max-width:520px;margin-bottom:32px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .hero-stats{display:flex;gap:40px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+  .hero-stats strong{display:block;font-family:"Fraunces",serif;font-size:2rem;font-weight:600}
+  .hero-stats span{font-size:.85rem;color:var(--ink-soft)}
+
+  .specimen-board{position:relative;aspect-ratio:4/5;background:var(--forest);border-radius:24px;
+      padding:28px;color:var(--paper);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:18px;
+      box-shadow:0 30px 60px -30px rgba(31,61,47,.6)}
+  .specimen-board::before{content:"";position:absolute;inset:12px;border:1px solid rgba(244,239,228,.2);border-radius:16px;pointer-events:none}
+  .pin{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}
+  .pin svg{width:70%;height:auto}
+  .pin small{font-family:"Fraunces",serif;font-style:italic;font-size:.82rem;opacity:.8}
+  .stamp{position:absolute;right:-14px;bottom:36px;background:var(--amber);color:#fff;border-radius:50%;
+      width:112px;height:112px;display:grid;place-items:center;text-align:center;font-size:.78rem;font-weight:600;
+      line-height:1.25;transform:rotate(-12deg);box-shadow:0 10px 24px -10px rgba(0,0,0,.4)}
+  .stamp b{display:block;font-family:"Fraunces",serif;font-size:1.5rem}
+
+  /* Trust strip */
+  .strip{background:var(--forest);color:var(--paper);padding:22px 0}
+  .strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;font-size:.92rem}
+  .strip span::before{content:"✦";color:var(--amber);margin-right:10px}
+
+  /* Categories */
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .cat{background:var(--paper-2);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;
+       border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
+  .cat:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(31,61,47,.5)}
+  .cat .icon{width:64px;height:64px;border-radius:50%;background:var(--paper);display:grid;place-items:center;margin-bottom:22px;color:var(--forest)}
+  .cat .icon svg{width:38px}
+  .cat h3{font-size:1.45rem;margin-bottom:8px}
+  .cat p{color:var(--ink-soft);margin-bottom:18px;flex:1}
+  .cat a{font-weight:600;color:var(--amber-dark);text-decoration:none}
+
+  /* Products */
+  .products{background:var(--paper-2)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .card{background:var(--paper);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+  .card .thumb{aspect-ratio:1;display:grid;place-items:center;position:relative}
+  .card .thumb svg{width:58%}
+  .card .tag{position:absolute;top:12px;left:12px;background:var(--paper);font-size:.72rem;font-weight:600;
+       padding:4px 10px;border-radius:999px;color:var(--forest)}
+  .card .body{padding:18px 18px 20px}
+  .card h3{font-size:1.15rem}
+  .card .latin{font-size:.88rem;margin-bottom:12px}
+  .card .meta{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--ink-soft)}
+  .card .price{font-weight:600;color:var(--ink);font-size:1rem}
+  .t1{background:#d9c9a3}.t2{background:#b8c7a8}.t3{background:#e2b98b}.t4{background:#c9cfc0}
+  .t5{background:#cdb9a5}.t6{background:#a9bfae}.t7{background:#e6d3a3}.t8{background:#d4c2b0}
+
+  /* Why */
+  .why .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
+  .why-list{display:grid;gap:26px}
+  .why-item{display:grid;grid-template-columns:52px 1fr;gap:18px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+  .why-item:last-child{border-bottom:0}
+  .why-item .num{font-family:"Fraunces",serif;font-size:1.6rem;color:var(--amber)}
+  .why-item h3{font-size:1.2rem;margin-bottom:6px}
+  .why-item p{color:var(--ink-soft)}
+
+  /* Steps */
+  .steps-sec{background:var(--forest);color:var(--paper)}
+  .steps-sec .eyebrow{color:#a9c493}
+  .steps-sec .section-head p{color:rgba(244,239,228,.75)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
+  .step{border-top:1px solid rgba(244,239,228,.25);padding-top:22px}
+  .step::before{counter-increment:s;content:"0" counter(s);font-family:"Fraunces",serif;font-size:2.4rem;color:var(--amber);display:block;margin-bottom:8px}
+  .step h3{font-size:1.15rem;margin-bottom:6px}
+  .step p{font-size:.94rem;color:rgba(244,239,228,.72)}
+
+  /* Reviews */
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .review{background:var(--paper-2);border-radius:var(--radius);padding:28px;border:1px solid var(--line)}
+  .review blockquote{font-family:"Fraunces",serif;font-size:1.12rem;line-height:1.5;margin-bottom:20px}
+  .review .who{display:flex;align-items:center;gap:12px;font-size:.9rem}
+  .avatar{width:40px;height:40px;border-radius:50%;background:var(--moss);color:#fff;display:grid;place-items:center;font-weight:600}
+  .stars{color:var(--amber);letter-spacing:2px;margin-bottom:12px}
+
+  /* FAQ */
+  .faq .wrap{max-width:820px}
+  details{border-bottom:1px solid var(--line);padding:22px 0}
+  summary{cursor:pointer;font-weight:600;font-size:1.06rem;list-style:none;display:flex;justify-content:space-between;gap:20px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:"Fraunces",serif;font-size:1.5rem;line-height:1;color:var(--amber);transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--ink-soft);margin-top:12px}
+
+  /* CTA */
+  .cta{padding:0 0 96px}
+  .cta-box{background:var(--amber);color:#fff;border-radius:28px;padding:64px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+  .cta-box h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:12px}
+  .cta-box p{opacity:.92}
+  .contact{display:grid;gap:12px}
+  .contact a{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.35);padding:16px 20px;border-radius:12px;text-decoration:none;font-weight:600}
+  .contact a:hover{background:rgba(255,255,255,.24)}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;font-size:.88rem;color:var(--ink-soft)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+  /* Responsive */
+  @media (max-width:960px){
+    .nav ul{display:none}
+    .hero .wrap,.why .wrap,.cta-box{grid-template-columns:1fr}
+    .specimen-board{max-width:460px;width:100%;margin:0 auto}
+    .stamp{right:4px}
+    .cats,.reviews{grid-template-columns:1fr}
+    .grid,.steps{grid-template-columns:repeat(2,1fr)}
+    .cta-box{padding:40px 28px}
+  }
+  @media (max-width:520px){
+    section{padding:72px 0}
+    .wrap{padding:0 16px}
+    .grid{gap:12px}
+    .card .body{padding:14px}
+    .card .meta{flex-direction:column;align-items:flex-start;gap:2px}
+    .steps{grid-template-columns:1fr}
+    .hero-stats{gap:24px}
+    .hero-stats strong{font-size:1.6rem}
+    .nav .btn{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SVG minh hoạ (thay bằng ảnh thật khi có) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="beetle" viewBox="0 0 100 120">
+      <g stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none">
+        <path d="M42 22 C36 12 30 8 24 6 M58 22 C64 12 70 8 76 6"/>
+        <path d="M30 50 L14 42 L8 30 M30 66 L12 68 L6 80 M32 84 L16 98 L14 112"/>
+        <path d="M70 50 L86 42 L92 30 M70 66 L88 68 L94 80 M68 84 L84 98 L86 112"/>
+      </g>
+      <ellipse cx="50" cy="26" rx="10" ry="8" fill="currentColor"/>
+      <path d="M32 36 Q50 28 68 36 L66 50 Q50 54 34 50 Z" fill="currentColor"/>
+      <path d="M33 52 Q50 48 67 52 Q72 90 50 112 Q28 90 33 52 Z" fill="currentColor"/>
+      <path d="M50 52 L50 110" stroke="#f4efe4" stroke-width="1.5" opacity=".5"/>
+    </symbol>
+    <symbol id="butterfly" viewBox="0 0 120 100">
+      <path d="M58 30 C40 2 6 4 8 26 C10 44 34 50 56 46 Z" fill="currentColor"/>
+      <path d="M62 30 C80 2 114 4 112 26 C110 44 86 50 64 46 Z" fill="currentColor"/>
+      <path d="M56 50 C34 52 20 72 32 86 C42 96 54 78 58 58 Z" fill="currentColor" opacity=".8"/>
+      <path d="M64 50 C86 52 100 72 88 86 C78 96 66 78 62 58 Z" fill="currentColor" opacity=".8"/>
+      <rect x="57" y="24" width="6" height="56" rx="3" fill="currentColor"/>
+      <path d="M58 26 C54 14 48 8 44 6 M62 26 C66 14 72 8 76 6" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="26" cy="24" r="6" fill="#f4efe4" opacity=".55"/>
+      <circle cx="94" cy="24" r="6" fill="#f4efe4" opacity=".55"/>
+    </symbol>
+    <symbol id="ant" viewBox="0 0 100 120">
+      <g stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none">
+        <path d="M44 14 C38 6 32 4 26 4 M56 14 C62 6 68 4 74 4"/>
+        <path d="M44 46 L22 34 L14 20 M44 52 L18 56 L10 70 M46 58 L24 78 L22 96"/>
+        <path d="M56 46 L78 34 L86 20 M56 52 L82 56 L90 70 M54 58 L76 78 L78 96"/>
+      </g>
+      <ellipse cx="50" cy="22" rx="11" ry="10" fill="currentColor"/>
+      <ellipse cx="50" cy="50" rx="8" ry="14" fill="currentColor"/>
+      <ellipse cx="50" cy="88" rx="16" ry="24" fill="currentColor"/>
+    </symbol>
+    <symbol id="larva" viewBox="0 0 120 80">
+      <g fill="currentColor">
+        <circle cx="18" cy="44" r="11"/><circle cx="34" cy="38" r="12"/><circle cx="51" cy="34" r="12.5"/>
+        <circle cx="68" cy="34" r="12.5"/><circle cx="85" cy="38" r="12"/><circle cx="100" cy="44" r="10"/>
+      </g>
+      <circle cx="104" cy="41" r="2" fill="#f4efe4"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="#" class="logo"><svg><use href="#beetle"/></svg>Côn Trùng Xanh</a>
+    <ul>
+      <li><a href="#danh-muc">Danh mục</a></li>
+      <li><a href="#san-pham">Sản phẩm</a></li>
+      <li><a href="#quy-trinh">Giao hàng</a></li>
+      <li><a href="#hoi-dap">Hỏi đáp</a></li>
+    </ul>
+    <a href="#lien-he" class="btn btn-primary">Đặt hàng</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Trại nuôi côn trùng · Từ 2020</span>
+      <h1>Thế giới nhỏ bé, <em>sống động</em> trong tay bạn</h1>
+      <p class="lead">Côn trùng cảnh khoẻ mạnh, thức ăn sống sạch cho bò sát &amp; chim cảnh. Tự nhân giống tại trại, giao tận nơi trên toàn quốc kèm hướng dẫn nuôi chi tiết.</p>
+      <div class="hero-actions">
+        <a href="#san-pham" class="btn btn-primary">Xem sản phẩm →</a>
+        <a href="#lien-he" class="btn btn-ghost">Tư vấn qua Zalo</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>40+</strong><span>Loài đang nuôi</span></div>
+        <div><strong>12k</strong><span>Đơn đã giao</span></div>
+        <div><strong>98%</strong><span>Sống khi nhận</span></div>
+      </div>
+    </div>
+    <div class="specimen-board" aria-label="Bảng mẫu côn trùng">
+      <div class="pin" style="color:#e2b98b"><svg><use href="#beetle"/></svg><small>Dorcus titanus</small></div>
+      <div class="pin" style="color:#a9c493"><svg><use href="#butterfly"/></svg><small>Papilio memnon</small></div>
+      <div class="pin" style="color:#d9c9a3"><svg><use href="#ant"/></svg><small>Oecophylla smaragdina</small></div>
+      <div class="pin" style="color:#e6d3a3"><svg><use href="#larva"/></svg><small>Tenebrio molitor</small></div>
+      <div class="stamp"><span><b>98%</b>đảm bảo<br>sống</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== TRUST STRIP ===== -->
+<div class="strip">
+  <div class="wrap">
+    <span>Giao hoả tốc nội thành</span>
+    <span>Đóng hộp thoáng khí chuyên dụng</span>
+    <span>Bao chết 1 đổi 1</span>
+    <span>Hỗ trợ nuôi trọn đời</span>
+  </div>
+</div>
+
+<!-- ===== DANH MỤC ===== -->
+<section id="danh-muc">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Danh mục</span>
+      <h2>Bạn đang tìm gì?</h2>
+      <p>Dù bạn là người mới muốn nuôi thử một chú bọ, hay chủ trại bò sát cần nguồn thức ăn ổn định — chúng tôi đều có.</p>
+    </div>
+    <div class="cats">
+      <article class="cat">
+        <div class="icon"><svg viewBox="0 0 100 120"><use href="#beetle"/></svg></div>
+        <h3>Côn trùng cảnh</h3>
+        <p>Bọ kẹp kìm, bọ hung ba sừng, bọ ngựa lá, bướm phượng… những loài đẹp, dễ nuôi, phù hợp làm thú cưng để bàn.</p>
+        <a href="#san-pham">Khám phá →</a>
+      </article>
+      <article class="cat">
+        <div class="icon"><svg viewBox="0 0 120 80"><use href="#larva"/></svg></div>
+        <h3>Thức ăn sống</h3>
+        <p>Sâu gạo, sâu canxi, dế mèn, gián Dubia — nuôi bằng cám sạch, bán lẻ theo hộp hoặc sỉ theo kg cho trại.</p>
+        <a href="#san-pham">Xem bảng giá →</a>
+      </article>
+      <article class="cat">
+        <div class="icon"><svg viewBox="0 0 100 120"><use href="#ant"/></svg></div>
+        <h3>Bộ kit &amp; phụ kiện</h3>
+        <p>Hộp nuôi, giá thể, mùn gỗ lên men, thạch dinh dưỡng và tổ kiến mica — đủ đồ để bắt đầu ngay trong ngày.</p>
+        <a href="#san-pham">Chọn bộ kit →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SẢN PHẨM ===== -->
+<section id="san-pham" class="products">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Nổi bật tuần này</span>
+      <h2>Bộ sưu tập đang có sẵn</h2>
+      <p>Giá mang tính tham khảo — nhắn tin để nhận giá theo số lượng và tình trạng hàng mới nhất.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="thumb t1" style="color:#3b2a18"><span class="tag">Bán chạy</span><svg viewBox="0 0 100 120"><use href="#beetle"/></svg></div>
+        <div class="body"><h3>Bọ kẹp kìm</h3><p class="latin">Dorcus titanus</p>
+          <div class="meta"><span>Con trưởng thành</span><span class="price">250.000đ</span></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb t2" style="color:#1f3d2f"><span class="tag">Hiếm</span><svg viewBox="0 0 120 100"><use href="#butterfly"/></svg></div>
+        <div class="body"><h3>Kén bướm phượng</h3><p class="latin">Papilio memnon</p>
+          <div class="meta"><span>Kén sắp nở</span><span class="price">90.000đ</span></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb t3" style="color:#5a2e0e"><svg viewBox="0 0 100 120"><use href="#ant"/></svg></div>
+        <div class="body"><h3>Tổ kiến vàng</h3><p class="latin">Oecophylla smaragdina</p>
+          <div class="meta"><span>Kèm tổ mica</span><span class="price">450.000đ</span></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb t4" style="color:#4b5a50"><span class="tag">Mới</span><svg viewBox="0 0 100 120"><use href="#beetle"/></svg></div>
+        <div class="body"><h3>Bọ hung ba sừng</h3><p class="latin">Chalcosoma atlas</p>
+          <div class="meta"><span>Ấu trùng L3</span><span class="price">180.000đ</span></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb t5" style="color:#6b4423"><svg viewBox="0 0 120 80"><use href="#larva"/></svg></div>
+        <div class="body"><h3>Sâu gạo</h3><p class="latin">Tenebrio molitor</p>
+          <div class="meta"><span>Hộp 500g</span><span class="price">60.000đ</span></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb t6" style="color:#1d2a22"><svg viewBox="0 0 120 80"><use href="#larva"/></svg></div>
+        <div class="body"><h3>Sâu canxi</h3><p class="latin">Hermetia illucens</p>
+          <div class="meta"><span>Hộp 500g</span><span class="price">55.000đ</span></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb t7" style="color:#7a4b12"><svg viewBox="0 0 100 120"><use href="#ant"/></svg></div>
+        <div class="body"><h3>Dế mèn</h3><p class="latin">Gryllus bimaculatus</p>
+          <div class="meta"><span>Hộp 100 con</span><span class="price">50.000đ</span></div></div>
+      </article>
+      <article class="card">
+        <div class="thumb t8" style="color:#3b2a18"><span class="tag">Combo</span><svg viewBox="0 0 100 120"><use href="#beetle"/></svg></div>
+        <div class="body"><h3>Kit nuôi bọ cho bé</h3><p class="latin">Starter kit</p>
+          <div class="meta"><span>Hộp + bọ + thức ăn</span><span class="price">320.000đ</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VÌ SAO CHỌN ===== -->
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Vì sao chọn chúng tôi</span>
+      <h2>Nuôi bằng tâm, giao bằng nghề</h2>
+      <p>Mỗi con côn trùng đều được nhân giống và chăm sóc tại trại riêng, không thu gom ngoài tự nhiên.</p>
+    </div>
+    <div class="why-list">
+      <div class="why-item"><span class="num">i.</span><div><h3>Tự nhân giống tại trại</h3><p>Kiểm soát nguồn gốc, khoẻ mạnh, không mang mầm bệnh — an toàn cho thú cưng của bạn.</p></div></div>
+      <div class="why-item"><span class="num">ii.</span><div><h3>Đóng gói chuyên dụng</h3><p>Hộp thoáng khí, giá thể giữ ẩm, chống sốc nhiệt — côn trùng đến tay bạn vẫn hoạt bát.</p></div></div>
+      <div class="why-item"><span class="num">iii.</span><div><h3>Bao chết 1 đổi 1</h3><p>Quay video khi mở hộp, nếu có con không sống chúng tôi gửi bù ngay trong đơn kế tiếp.</p></div></div>
+      <div class="why-item"><span class="num">iv.</span><div><h3>Hướng dẫn nuôi trọn đời</h3><p>Tặng cẩm nang nuôi theo loài và hỗ trợ qua Zalo bất cứ khi nào bạn cần.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUY TRÌNH ===== -->
+<section id="quy-trinh" class="steps-sec">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Đặt hàng dễ dàng</span>
+      <h2>Từ trại đến tay bạn trong 4 bước</h2>
+      <p>Không cần tài khoản, không cần giỏ hàng — chỉ một tin nhắn.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Nhắn tin chọn loài</h3><p>Gửi tên sản phẩm qua Zalo hoặc Facebook, nhân viên tư vấn ngay.</p></div>
+      <div class="step"><h3>Xác nhận &amp; báo giá</h3><p>Báo giá theo số lượng, phí ship và thời gian nhận hàng.</p></div>
+      <div class="step"><h3>Đóng gói trong ngày</h3><p>Chọn cá thể khoẻ nhất, đóng hộp chuyên dụng, gửi video trước khi giao.</p></div>
+      <div class="step"><h3>Nhận hàng &amp; nuôi</h3><p>Kiểm tra hàng, thanh toán khi nhận, kèm cẩm nang nuôi.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ĐÁNH GIÁ ===== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Khách hàng nói gì</span>
+      <h2>Được tin chọn bởi người yêu côn trùng</h2>
+    </div>
+    <div class="reviews">
+      <div class="review"><div class="stars">★★★★★</div>
+        <blockquote>“Bọ kẹp kìm về rất khoẻ, hộp đóng cẩn thận. Shop còn chỉ cách làm giá thể cho bé nữa.”</blockquote>
+        <div class="who"><div class="avatar">M</div><div><b>Minh Anh</b><br>Hà Nội</div></div></div>
+      <div class="review"><div class="stars">★★★★★</div>
+        <blockquote>“Lấy sâu canxi sỉ hàng tuần cho trại rồng Nam Mỹ, chất lượng đều, giao đúng hẹn.”</blockquote>
+        <div class="who"><div class="avatar">T</div><div><b>Tuấn Reptile</b><br>TP. Hồ Chí Minh</div></div></div>
+      <div class="review"><div class="stars">★★★★★</div>
+        <blockquote>“Mua kit cho con trai 8 tuổi, giờ ngày nào bé cũng ngồi quan sát và ghi chép. Rất đáng tiền!”</blockquote>
+        <div class="who"><div class="avatar">H</div><div><b>Chị Hà</b><br>Đà Nẵng</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HỎI ĐÁP ===== -->
+<section id="hoi-dap" class="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Hỏi đáp</span>
+      <h2>Câu hỏi thường gặp</h2>
+    </div>
+    <details open><summary>Côn trùng có chết khi vận chuyển xa không?</summary>
+      <p>Tỉ lệ sống khi nhận của chúng tôi trên 98%. Hàng được đóng trong hộp thoáng khí có giá thể giữ ẩm. Nếu có con không sống, bạn quay video lúc mở hộp để được gửi bù.</p></details>
+    <details><summary>Người mới nên nuôi loài nào?</summary>
+      <p>Bọ kẹp kìm và bọ hung là lựa chọn dễ nhất: ít tốn công, chỉ cần thạch dinh dưỡng và mùn gỗ, sống được nhiều tháng.</p></details>
+    <details><summary>Có bán sỉ thức ăn sống cho trại không?</summary>
+      <p>Có. Sâu gạo, sâu canxi, dế và gián Dubia có giá sỉ theo kg, giao định kỳ hàng tuần. Nhắn Zalo để nhận bảng giá sỉ.</p></details>
+    <details><summary>Thanh toán thế nào?</summary>
+      <p>Chuyển khoản hoặc thanh toán khi nhận hàng (COD) trên toàn quốc.</p></details>
+  </div>
+</section>
+
+<!-- ===== CTA / LIÊN HỆ ===== -->
+<div id="lien-he" class="cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <h2>Sẵn sàng đón “thú cưng tí hon” về nhà?</h2>
+        <p>Nhắn tin để được tư vấn chọn loài phù hợp và nhận ưu đãi 10% cho đơn đầu tiên.</p>
+      </div>
+      <div class="contact">
+        <a href="https://zalo.me/0900000000">Zalo: 0900 000 000 <span>→</span></a>
+        <a href="https://facebook.com/">Facebook Messenger <span>→</span></a>
+        <a href="tel:0900000000">Gọi ngay <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Côn Trùng Xanh · 123 Đường ABC, Quận XYZ</span>
+    <span>Mở cửa 8:00 – 21:00 mỗi ngày</span>
+  </div>
+</footer>
+
+</body>
+</html>
