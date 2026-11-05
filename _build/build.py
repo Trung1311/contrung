@@ -68,7 +68,7 @@ def header(active):
 </div></div>
 <header class="site-head"><div class="wrap">
   <a class="brand" href="index.html">
-    <img src="images/logo.jpg" alt="" width="186" height="118">
+    <img src="images/logo.jpg" alt="" width="208" height="120">
     <div><strong>Trang trại Thanh Xuân</strong><span>Dế mèn · Tắc kè · Bọ cạp · từ 2004</span></div>
   </a>
   <ul class="nav-inline">{inline}</ul>
